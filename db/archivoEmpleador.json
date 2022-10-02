@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "nombre": "John",
+        "edad": "20",
+        "correo" : "john@hotmail.com",
+        "sede" : "chapinero",
+        "usuario" : "jhon123",
+        "contra" :" 123456"
+    },
+    {
+        "id": "2",
+        "nombre": "Mary",
+        "edad": "21",
+        "correo" : "Mary",
+        "sede" : "chapinero",
+        "usuario" : "Mary123",
+        "contra" :" 123456"
+    },
+    {
+        "id": "3",
+        "nombre": "Peter",
+        "edad": "22",
+        "correo" : "Peter",
+        "sede" : "chapinero",
+        "usuario" : "Peter123",
+        "contra" :" 123456"
+    }
+]

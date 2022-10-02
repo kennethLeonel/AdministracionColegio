@@ -7,6 +7,19 @@
     <title>Gestor de Empleados</title>
 </head>
 <body>
-        <h1>hola</h1>
+        <h1>Datos empleados</h1>
+  
+
+        <% empleados.forEach(function(empleado){ %>
+            <p> <%= empleado.nombre%> </p>
+            <p> <%= empleado.edad%> </p>
+            <p> <%= empleado.correo%> </p>
+            <p> <%= empleado.usuario%> </p>
+            <p> <%= empleado.contra%> </p>
+            <button onclick="location.href='/administrador/editar'">Editar </button>
+            <br>
+        <% }); %>
+        <button onclick=" location.href='/administrador/crear'"> Agregar Empleado</button>
+  
 </body>
 </html>
