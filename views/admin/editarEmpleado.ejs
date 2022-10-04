@@ -8,5 +8,40 @@
 </head>
 <body>
     <h1>Formulario Editar Empleado</h1>
+    
+    <form action="/administrador/editar/<%=empleado.id%>?_method=PUT" method="POST">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" value="<%= empleado.nombre%>">
+        </div>
+        <div>
+            <label for="edad">Edad</label>
+            <input type="number" name="edad" id="edad" value="<%= empleado.edad%>">
+            
+        </div>
+        
+        <div>
+            <label for="correo">Correo</label>
+            <input type="email" name="correo" id="correo" value="<%= empleado.correo%>">
+            
+        </div>
+
+        <div>
+            <label for="sede">Sede </label>
+            <input type="text" name="sede" id="sede" value="<%= empleado.sede%>">
+        </div>
+
+        <div>
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" id="usuario" value="<%= empleado.usuario%>">
+        </div>
+
+        <div>
+            <label for="contra">Contraseña</label>
+            <input type="password" name="contra" id="contra" value="<%= empleado.nombre%>">
+        </div> 
+        
+        <button type="submit">Editar</button>
+    </form>
 </body>
 </html>

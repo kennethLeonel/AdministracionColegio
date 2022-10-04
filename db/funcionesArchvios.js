@@ -9,7 +9,12 @@ const funcionesArchivos = {
         const archivo = path.join(__dirname, '../db/archivoEmpleador.json');
         let contenido = fs.readFileSync(archivo, 'utf-8');
         return JSON.parse(contenido);
-    }
+    },
+    escribirArchivo: (empleados) => {
+        const archivo = path.join(__dirname, '../db/archivoEmpleador.json');
+        let contenido = JSON.stringify(empleados, null, ' ');
+        fs.writeFileSync(archivo, contenido);
+    },
 }
 
 module.exports = funcionesArchivos;

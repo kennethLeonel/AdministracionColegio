@@ -8,5 +8,40 @@
 </head>
 <body>
     <h1>Formualrio creación Empleado</h1>
+
+    <form action="/administrador/crear" method="post">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+        </div>
+        <div>
+            <label for="edad">Edad</label>
+            <input type="number" name="edad" id="edad">
+            
+        </div>
+        
+        <div>
+            <label for="correo">Correo</label>
+            <input type="email" name="correo" id="correo">
+            
+        </div>
+
+        <div>
+            <label for="sede">Sede </label>
+            <input type="text" name="sede" id="sede">
+        </div>
+
+        <div>
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" id="usuario">
+        </div>
+
+        <div>
+            <label for="contra">Contraseña</label>
+            <input type="password" name="contra" id="contra">
+        </div> 
+        
+        <button type="submit">Crear</button>
+    </form>
 </body>
 </html>

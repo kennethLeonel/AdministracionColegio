@@ -1,29 +1,47 @@
 [
-    {
-        "id": "1",
-        "nombre": "John",
-        "edad": "20",
-        "correo" : "john@hotmail.com",
-        "sede" : "chapinero",
-        "usuario" : "jhon123",
-        "contra" :" 123456"
-    },
-    {
-        "id": "2",
-        "nombre": "Mary",
-        "edad": "21",
-        "correo" : "Mary",
-        "sede" : "chapinero",
-        "usuario" : "Mary123",
-        "contra" :" 123456"
-    },
-    {
-        "id": "3",
-        "nombre": "Peter",
-        "edad": "22",
-        "correo" : "Peter",
-        "sede" : "chapinero",
-        "usuario" : "Peter123",
-        "contra" :" 123456"
-    }
+ {
+  "id": 1,
+  "nombre": "John11",
+  "edad": "20",
+  "correo": "john@hotmail.com",
+  "sede": "chapinero",
+  "usuario": "jhon123",
+  "contra": "John"
+ },
+ {
+  "id": 2,
+  "nombre": "Mary",
+  "edad": "21",
+  "correo": "Mary@gmail.com",
+  "sede": "chapinero",
+  "usuario": "Mary123",
+  "contra": "Mary"
+ },
+ {
+  "id": 3,
+  "nombre": "Peter",
+  "edad": "22",
+  "correo": "Peter",
+  "sede": "chapinero",
+  "usuario": "Peter123",
+  "contra": " 123456"
+ },
+ {
+  "id": 4,
+  "nombre": "Kuchau",
+  "edad": "32",
+  "correo": "dassdasdasdd@gmail.com",
+  "sede": "Cedritos",
+  "usuario": "dasdasd",
+  "contra": "Kuchau"
+ },
+ {
+  "id": 5,
+  "nombre": "Kenneth",
+  "edad": "21",
+  "correo": "dassdasdasdd@gmail.com",
+  "sede": "Cedritos",
+  "usuario": "80850113",
+  "contra": "23123"
+ }
 ]
