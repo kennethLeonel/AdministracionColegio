@@ -1,5 +1,5 @@
 const archivo = require('../db/funcionesArchvios');
-
+const Swal = require('sweetalert2')
 
 const controller = {
     vista: (req, res) => {
@@ -24,7 +24,7 @@ const controller = {
 
         const empleados = archivo.leerArchivo();
         const empleado = {
-            id: empleados.length + 1,
+            id: empleados[empleados.length - 1].id + 1,
             nombre: req.body.nombre,
             edad: req.body.edad,
             correo: req.body.correo,
@@ -55,6 +55,25 @@ const controller = {
         res.redirect('/administrador');
 
     },
+    eliminarEmpleado: (req, res) => {
+        const empleados = archivo.leerArchivo();
+        const id = req.params.id;
+        const empleadosFiltrados = empleados.filter(empleado => empleado.id != id);
+        archivo.escribirArchivo(empleadosFiltrados);
+        console.log("Se elimino el empleado correctamente");
+        res.redirect('/administrador');
+    },
+    vistaVer: (req, res) => {
+        const empleados = archivo.leerArchivo();
+        const id = req.params.id;
+        const empleado = empleados.find(empleado => empleado.id == id);
+        
+          setTimeout(() => {
+
+            res.redirect('/administrador');
+          }, 3000);
+        
+    }
 
 }
 

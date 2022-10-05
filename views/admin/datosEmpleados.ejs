@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor de Empleados</title>
+   
 </head>
 <body>
         <h1>Datos empleados</h1>
@@ -18,9 +19,17 @@
             <p> <%= empleado.contra%> </p>
             <p> <%= empleado.sede%> </p>
             <button onclick="location.href='/administrador/editar/<%= empleado.id%>'">Editar </button>
+            <form action="/administrador/eliminar/<%= empleado.id%>?_method=DELETE" method="POST">
+                <button type="submit">Eliminar </button> 
+            </form>
+            <!-- <button onclick="location.href='/administrador/ver/<%= empleado.id%>'">DetallarEmpleado</button>
+            <br> -->
+            <button onclick="visualizar('<%= empleado.nombre%>','<%= empleado.edad%>' , '<%= empleado.sede%>'  )">Visualizar</button>
             <br>
         <% }); %>
+       
         <button onclick=" location.href='/administrador/crear'"> Agregar Empleado</button> 
-  
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/javascript/prueba.js"></script>
 </body>
 </html>
