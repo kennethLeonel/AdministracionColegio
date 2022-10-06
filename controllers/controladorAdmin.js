@@ -63,17 +63,7 @@ const controller = {
         console.log("Se elimino el empleado correctamente");
         res.redirect('/administrador');
     },
-    vistaVer: (req, res) => {
-        const empleados = archivo.leerArchivo();
-        const id = req.params.id;
-        const empleado = empleados.find(empleado => empleado.id == id);
-        
-          setTimeout(() => {
-
-            res.redirect('/administrador');
-          }, 3000);
-        
-    }
+  
 
 }
 

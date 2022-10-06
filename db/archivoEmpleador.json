@@ -1,12 +1,12 @@
 [
  {
   "id": 1,
-  "nombre": "John11",
+  "nombre": "John123",
   "edad": "20",
   "correo": "john@hotmail.com",
   "sede": "chapinero",
   "usuario": "jhon123",
-  "contra": "John"
+  "contra": "John11"
  },
  {
   "id": 2,
@@ -18,15 +18,6 @@
   "contra": "Mary"
  },
  {
-  "id": 4,
-  "nombre": "Kuchau",
-  "edad": "32",
-  "correo": "dassdasdasdd@gmail.com",
-  "sede": "Cedritos",
-  "usuario": "dasdasd",
-  "contra": "Kuchau"
- },
- {
   "id": 5,
   "nombre": "Kenneth",
   "edad": "21",
@@ -34,5 +25,14 @@
   "sede": "Cedritos",
   "usuario": "80850113",
   "contra": "2323"
+ },
+ {
+  "id": 6,
+  "nombre": "leo",
+  "edad": "222",
+  "correo": "dassdasdasdd@gmail.com",
+  "sede": "Cedritos",
+  "usuario": "pedro",
+  "contra": "23123"
  }
 ]
