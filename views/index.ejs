@@ -5,9 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="css/estilosAdmin.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Sidebar.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Login</title>
 </head>
 <body>
-        <h1>Llegue al index</h1>
+  <% if (locals.error) { %>
+    <script>
+     Swal.fire({
+        icon: 'error',
+        title: 'Que pena!',
+        text: '<%= locals.error %>',
+        showConfirmButton: false,
+        timer: 4000
+     })
+   </script>
+ 
+<% } %>
+<div class="login">
+      <form action="/" method="post">
+        <div class="login-form">
+          <div class="login-header">
+              <h1>Sistema de Gestión</h1>
+          </div>
+          <h3>Usuario:</h3>
+          <input type="text" placeholder="Usuario" name="usuario"/><br>
+          <h3>Contraseña:</h3>
+          <input type="password" placeholder="Contraseña" name="contra"/>
+          <br>
+          <!-- <input type="button" value="Ingresar" class="login-button"/> -->
+          <button type="submit" class="login-button">Ingresar</button>
+          <h6 class="no-access">¿No puedes acceder a tu cuenta?</h6>
+      </form> 
+    </div>
+  </div>
+
+
+
 </body>
 </html>

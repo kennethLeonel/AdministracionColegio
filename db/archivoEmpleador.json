@@ -1,12 +1,12 @@
 [
  {
   "id": 1,
-  "nombre": "John123",
+  "nombre": "John Alvarez",
   "edad": "20",
   "correo": "john@hotmail.com",
   "sede": "chapinero",
   "usuario": "jhon123",
-  "contra": "John11"
+  "contra": "John123"
  },
  {
   "id": 2,
@@ -28,11 +28,11 @@
  },
  {
   "id": 6,
-  "nombre": "leo",
-  "edad": "222",
+  "nombre": "Alejandro",
+  "edad": "24",
   "correo": "dassdasdasdd@gmail.com",
   "sede": "Cedritos",
-  "usuario": "pedro",
-  "contra": "23123"
+  "usuario": "alejo01",
+  "contra": "1234"
  }
 ]
