@@ -9,13 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/estilosAdmin.css">
-   
+    <link rel="stylesheet" href="/css/formularioEmpleado.css">
+    <script src="https://kit.fontawesome.com/c9d22b43b9.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-
-        <h1>Datos empleados</h1>
-  
+    <div class="navegacion">
+        <%- include('../partials/navegacion') %>
+    </div>
+ 
+       
+        <main>
+            <h1>Datos empleados</h1>
         <!-- Se va a realizar Tabla de la información de los empleados -->
         <% empleados.forEach(function(empleado){ %>
             <p> <%= empleado.nombre%> </p>
@@ -33,8 +37,9 @@
             <button onclick="visualizar('<%= empleado.nombre%>','<%= empleado.edad%>' , '<%= empleado.sede%>'  )">Visualizar</button>
             <br>
         <% }); %>
-       
         <button onclick=" location.href='/administrador/crear'"> Agregar Empleado</button> 
+        </main>
+
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="/javascript/prueba.js"></script>
 </body>
