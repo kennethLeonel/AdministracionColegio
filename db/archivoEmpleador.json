@@ -6,7 +6,7 @@
   "correo": "john@hotmail.com",
   "sede": "chapinero",
   "usuario": "jhon123",
-  "contra": "John123"
+  "contra": "John Alvarez"
  },
  {
   "id": 2,
@@ -25,14 +25,5 @@
   "sede": "Cedritos",
   "usuario": "80850113",
   "contra": "2323"
- },
- {
-  "id": 6,
-  "nombre": "Alejandro",
-  "edad": "24",
-  "correo": "dassdasdasdd@gmail.com",
-  "sede": "Cedritos",
-  "usuario": "alejo01",
-  "contra": "1234"
  }
 ]
