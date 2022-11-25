@@ -43,7 +43,7 @@
             <td> <%= empleado.usuario%> </td>
             <td><%= empleado.contra%> </td>
             <td> <%= empleado.sede%> </td>
-            <td>  <button onclick="location.href='/administrador/editar/<%= empleado.id%>'">Editar </button> </td>
+            <td>  <button onclick="location.href='/administrador/editar/<%= empleado.id%>'"  class="buttonedit">Editar </button> </td>
             <td>  <form action="/administrador/eliminar/<%= empleado.id%>?_method=DELETE" method="POST">
                 <button class="tooltip">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" height="25" width="25">
