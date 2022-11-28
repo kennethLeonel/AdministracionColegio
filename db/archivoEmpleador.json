@@ -1,3 +1,11 @@
 [
-
+ {
+  "id": 1,
+  "nombre": "Kenneth11",
+  "edad": "21",
+  "correo": "kennethleo1@hotmail.com",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "contra": "Kenneth11"
+ }
 ]

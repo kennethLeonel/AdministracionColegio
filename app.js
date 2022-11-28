@@ -15,6 +15,8 @@ const methodOverride = require('method-override');
 const path  = require('path');
 const rutaAdmin = require ('./routes/administradorRouter')
 const rutaIndex = require ('./routes/indexRouter')
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 // se utiliza el motor ejs
 app.set('views', path.join(__dirname, 'views'))

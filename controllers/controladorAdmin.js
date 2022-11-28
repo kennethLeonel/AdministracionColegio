@@ -1,17 +1,19 @@
 const archivo = require('../db/funcionesArchvios');
-const Swal = require('sweetalert2')
+const Swal = require('sweetalert2');
+
 
 const controller = {
     vista: (req, res) => {
 
        const empleados = archivo.leerArchivo();
+   
 
         res.render('./admin/datosEmpleados', {empleados: empleados });
     },
     vistaCrear: (req, res) => {
 
          res.render('./admin/crearEmpleado');
-         console.log("Ingreso a CREAR VIWES");
+        
 
      },
      vistaEditar: (req, res) => {
@@ -22,12 +24,14 @@ const controller = {
         res.render('./admin/editarEmpleado', {empleado: empleado});
 
     },
-    crearEmpleado: (req, res) => {
+    crear: (req, res) => {
        
+      
         const empleados = archivo.leerArchivo();
-        console.log("Ingreso a crearEmpleado");
+        console.log(empleados);
+       
         const empleado = {
-            id: empleados[empleados.length - 1].id + 1,
+            id: empleados.length > 0 ? empleados[empleados.length - 1].id + 1 : 1,
             nombre: req.body.nombre,
             edad: req.body.edad,
             correo: req.body.correo,
@@ -40,6 +44,7 @@ const controller = {
         archivo.escribirArchivo(empleados);
         console.log("Se creo el empleado");
         res.redirect('/administrador');
+
     },
     editarEmpleado: (req, res) => {
         const empleados = archivo.leerArchivo();

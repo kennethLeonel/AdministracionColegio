@@ -21,7 +21,7 @@
     <div class="navegacion">
         <%- include('../partials/navegacion') %>
 
-            <form class="form">
+            <div class="form">
                 <h1>Formulario Editar Empleado</h1>
 
                 <form action="/administrador/editar/<%=empleado.id%>?_method=PUT" method="POST">
@@ -43,7 +43,20 @@
 
                     <div class ="espacio">
                         <label for="sede">Sede </label>
-                        <input type="text" name="sede" id="sede" value="<%= empleado.sede%>">
+                        <select name="sede" id="sede">
+            
+
+                        <%  var opciones = ["Cedritos", "Chapiñero","Bosa"] %>
+                        <% for(var i = 0; i < opciones.length; i++){ %>
+                            <% if(empleado.sede == opciones[i]){ %>
+                                <option value="<%=opciones[i] %>" selected> <%=opciones[i] %></option>
+                            <% }else{ %>
+                                <option value="<%=opciones[i] %>"> <%=opciones[i] %></option>
+                            <% } %>
+                        <% } %>
+
+                        </select>
+                        
                     </div>
 
                     <div class ="espacio">
@@ -58,7 +71,7 @@
 
                     <button type="submit">Editar</button>
                 </form>
-            </form>
+            </div>
 </body>
 
 </html>

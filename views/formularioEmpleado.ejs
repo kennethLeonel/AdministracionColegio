@@ -21,21 +21,55 @@
             timer: 4000
          })
        </script>
+           <% if (locals.empleadoLogin.sede) { %>
+            <h2> tu sede es <%= locals.sede%></h2>
+            <form action="/formularioEmpleado" method="POST">
+
+
+        
+                <div class ="espacio">
+                    <label for="zona">Zona </label>
+                    <select name="zona" id="zona">
+                        <option value="Recepción">Recepción</option>
+                        <option value="Zona común">Zona común</option>
+                        <option value="Rectoria">Rectoria</option>
+                        <option value="0" > Ninguno</option>
+                    </select>
+                </div>
+
+                <!-- <div>
+                    <label for="calZona">Calificación Zona </label>
+                    <input type="number" name="calZona" id="calZona" placeholder="Calificación Zona">
+                </div> -->
+
+                        
+                <div class ="espacio">
+                    <label for="tipoControl">Tipo Control </label>
+                    <select name="tipoControl" id="tipoControl">
+                        <option value="Limpieza">Limpieza</option>
+                        <option value="Desinfección">Desinfección</option>
+                        <option value="Higienización">Higienización</option>}
+                        <option value="Dotación"> Dotación</option>
+                        <option value="0" > Ninguno</option>
+
+                    </select>
+                </div>
+
+                <!-- <div>
+                    <label for="calTipoControl">Calificación Tipo Control </label>
+                    <input type="number" name="calTipoControl" id="calTipoControl" placeholder="Calificación Tipo Control">
+                </div> -->
+
+                
+                <button type="submit">Crear</button>
+            </form>
+
+        <% } else {  %>
+            <h2> no hay sede</h2>
+            <% } %>
      
     <% } %>
-    <% if (locals.sede) { %>
-        <h2> tu sede es <%= locals.sede%></h2>
 
-
-
-
-
-
-
-
-    <% } else {  %>
-        <h2> no hay sede</h2>
-        <% } %>
 
     <%- include('partials/navegacion') %>
 

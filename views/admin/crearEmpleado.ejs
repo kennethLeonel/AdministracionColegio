@@ -18,11 +18,13 @@
 <body>
     <div class="navegacion">
         <%- include('../partials/navegacion') %>
+    <div class="form">
 
-        <form class="form" >
+
+ 
     <h1>Formulario creación Empleado</h1>
 
-    <form action="/administrador/crearEmpleado" method="POST">
+    <form action="/administrador/crear" method="POST">
 
         <div class ="espacio">
             <label for="nombre">Nombre</label>
@@ -42,12 +44,12 @@
 
         <div class ="espacio">
             <label for="sede">Sede </label>
-            <!-- <select name="sede" id="sede">
-                <option value="Cedritos">Ceditros</option>
-                <option value="Chapinero">Chapinero</option>
+            <select name="sede" id="sede">
+                <option value="Cedritos">Cedritros</option>
+                <option value="Chapiñero">Chapiñero</option>
                 <option value="Bosa">Bosa</option>
-            </select> -->
-            <input type="text" name="sede" id="sede">
+            </select>
+         
         </div>
 
         <div class ="espacio">
@@ -63,6 +65,6 @@
         
         <button type="submit">Crear</button>
     </form>
-</form>
+</div>
 </body>
 </html>
