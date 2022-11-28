@@ -1,11 +1,14 @@
+
 const express = require ('express')
 const router = express.Router()
 
-const controladorAdmin = require ('../controllers/controladorIndex')
+const controladorIndex = require ('../controllers/controladorIndex')
 
-router.get('/', controladorAdmin.vista);
-router.post('/', controladorAdmin.realizarLogin);
-router.get('/formularioEmpleado', controladorAdmin.vistaEmpleado);
-router.get('/logout', controladorAdmin.cerrar);
+router.get('/', controladorIndex.vista);
+router.post('/', controladorIndex.realizarLogin);
+router.get('/formularioEmpleado', controladorIndex.vistaEmpleado);
+router.get('/logout', controladorIndex.cerrar);
+
+
 
 module.exports = router

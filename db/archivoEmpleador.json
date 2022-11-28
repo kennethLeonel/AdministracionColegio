@@ -1,29 +1,3 @@
 [
- {
-  "id": 1,
-  "nombre": "John Alvarez",
-  "edad": "20",
-  "correo": "john@hotmail.com",
-  "sede": "chapinero",
-  "usuario": "jhon123",
-  "contra": "John Alvarez"
- },
- {
-  "id": 2,
-  "nombre": "Mary",
-  "edad": "21",
-  "correo": "Mary@gmail.com",
-  "sede": "chapinero",
-  "usuario": "Mary123",
-  "contra": "Mary"
- },
- {
-  "id": 5,
-  "nombre": "Kenneth",
-  "edad": "21",
-  "correo": "dassdasdasdd@gmail.com",
-  "sede": "Cedritos",
-  "usuario": "80850113",
-  "contra": "2323"
- }
+
 ]
