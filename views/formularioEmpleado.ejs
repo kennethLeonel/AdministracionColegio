@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Formulario Empleado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/formularioEmpleado.css">
-    <link rel="stylesheet" href="css/index.css">
     <script src="https://kit.fontawesome.com/c9d22b43b9.js" crossorigin="anonymous"></script>
+ 
+
 </head>
 <body>
+    <%- include('partials/navegacion') %>
     <% if (locals.empleadoLogin) { %>
         <script>
          Swal.fire({
@@ -21,12 +25,17 @@
             timer: 4000
          })
        </script>
+      
            <% if (locals.empleadoLogin.sede) { %>
             <h2> tu sede es <%= locals.sede%></h2>
             <form action="/formularioEmpleado" method="POST">
 
 
-        
+                <div class="form">
+                    <div class ="espacio2">
+                    <h2> Formulario </h2>
+                </div>
+                    <h3> Por favor seleccione la Zona en la que realizó la labor</h3>
                 <div class ="espacio">
                     <label for="zona">Zona </label>
                     <select name="zona" id="zona">
@@ -44,6 +53,7 @@
 
                         
                 <div class ="espacio">
+                    <h3> Por favor seleccione el tipo de control que realizó</h3>
                     <label for="tipoControl">Tipo Control </label>
                     <select name="tipoControl" id="tipoControl">
                         <option value="Limpieza">Limpieza</option>
@@ -61,8 +71,9 @@
                 </div> -->
 
                 
-                <button type="submit">Crear</button>
+                <button type="submit">Enviar</button>
             </form>
+        </div>
 
         <% } else {  %>
             <h2> no hay sede</h2>
@@ -71,7 +82,7 @@
     <% } %>
 
 
-    <%- include('partials/navegacion') %>
+    
 
 
     <!-- Prueba -->
