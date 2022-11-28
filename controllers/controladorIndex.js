@@ -1,6 +1,7 @@
 const archivo = require('../db/funcionesArchvios');
 const archivosDatosFormularios = require('../db/funcionesArchivoDatosFormularios');
 const localStorage = require("localStorage");
+let usuario , contra;
 
 const controller = {
 
@@ -9,8 +10,8 @@ const controller = {
     },
     realizarLogin: (req, res) => {
         
-        let usuario = req.body.usuario;
-        let contra = req.body.contra;
+         usuario = req.body.usuario;
+         contra = req.body.contra;
         const empleados = archivo.leerArchivo();
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
       
@@ -27,31 +28,38 @@ const controller = {
         }
         },
     cerrar :(req, res) => {
+
         localStorage.clear();
         res.render('./index');
     },
     vistaEmpleado : (req, res) => {
-        res.render('./formularioEmpleado');
-    },
-    datosFormulario : (req, res) => {
-              
-        const datos = archivosDatosFormularios.leerArchivo();
-        console.log(datos);
+        const empleados = archivo.leerArchivo();
+        let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
+        res.render('./formularioEmpleado', {empleadoLogin: empleado } );
+
        
+    },
+    datosFormulario : (req, res) => {     
+        const datos = archivosDatosFormularios.leerArchivo();
+        const empleados = archivo.leerArchivo();
+        let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
+        
+    
         const dato = {
-            id: datos.length > 0 ? empleados[datos.length - 1].id + 1 : 1,
-            nombre: req.body.nombre,
-            edad: req.body.edad,
-            correo: req.body.correo,
-            sede: req.body.sede,
-            usuario: req.body.usuario,
-            contra: req.body.contra
+            id: datos.length > 0 ? datos[datos.length - 1].id + 1 : 1,
+            nombre: empleado.nombre,
+            sede: empleado.sede,
+            usuario: empleado.usuario,
+            zona: req.body.zona,
+            tipoControl: req.body.tipoControl
+
+        
             
         }
         datos.push(dato);
         archivosDatosFormularios.escribirArchivo(datos);
         console.log("Se creo datos form");
-        res.redirect('./formularioEmpleado'); // Hacer una vista Home 
+        res.redirect('./administrador'); // Hacer una vista Home 
 
     }
     }

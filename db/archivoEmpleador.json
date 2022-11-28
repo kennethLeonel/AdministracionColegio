@@ -7,5 +7,14 @@
   "sede": "Bosa",
   "usuario": "leonelken",
   "contra": "Kenneth11"
+ },
+ {
+  "id": 2,
+  "nombre": "Steban",
+  "edad": "23",
+  "correo": "steban123@gmail.com",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "contra": "1234"
  }
 ]

@@ -1,1 +1,18 @@
-[]
+[
+ {
+  "id": 1,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Zona común",
+  "tipoControl": "Desinfección"
+ },
+ {
+  "id": 2,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Rectoria",
+  "tipoControl": "Higienización"
+ }
+]
