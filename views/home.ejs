@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1> Chart</h1>
+    <% if (locals.datos) { %>
+        <div id="chartContainer">
+            <canvas id="barra"> </canvas>
+            <% var datosCanvas = [] %>
+           <% for( let index = 0; index < datos.length; index++ ) { %>
+                <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl } %>
+                <% datosCanvas.push(obj) %>
+                
+           
+           <% } %>
+        </div>
+    <% }else{ %>
+        <h2> No hay datos </h1>
+        <% } %> 
+        <div id="mydiv" data-test=<%= datosCanvas %>></div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        
+        const ctx = document.getElementById('barra');
+        let datosEmpleados = <%- JSON.stringify(datosCanvas) %>;
+        // console.log(getArray[0])
+        // var nombresEmpleados =  document.getElementById('mydiv').dataset.test
+  
+        let arregloNombres = [];
+        let arregloSedes = [];
+        let arregloZonas = [];
+        let arregloControles = [];
+
+        datosEmpleados.forEach(element => {
+            arregloNombres.push(element.nombre);
+            arregloSedes.push(element.sede);
+            arregloZonas.push(element.zona);
+            arregloControles.push(element.control);
+        });
+        
+
+       
+        
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: arregloNombres,
+            datasets: [{
+              label: 'nombre empleado',
+              data: [4 , 3],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+    </script>
+</body>
+</html>

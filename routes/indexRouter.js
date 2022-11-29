@@ -10,6 +10,7 @@ router.get('/formularioEmpleado', controladorIndex.vistaEmpleado);
 //post
 router.post('/formularioEmpleado', controladorIndex.datosFormulario);
 router.get('/logout', controladorIndex.cerrar);
+router.get('/home', controladorIndex.vistaHome);
 
 
 

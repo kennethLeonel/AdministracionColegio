@@ -61,6 +61,11 @@ const controller = {
         console.log("Se creo datos form");
         res.redirect('./administrador'); // Hacer una vista Home 
 
+    },
+    vistaHome: (req, res) => {  
+        const datos = archivosDatosFormularios.leerArchivo();
+
+        res.render('./home', {datos: datos } );
     }
     }
 
