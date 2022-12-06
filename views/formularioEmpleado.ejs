@@ -28,7 +28,7 @@
       
            <% if (locals.empleadoLogin.sede) { %>
             <h2> tu sede es <%= locals.sede%></h2>
-            <form action="/formularioEmpleado" method="POST">
+            <form action="/formularioEmpleado" method="POST" id="formulario">
 
 
                 <div class="form">
@@ -40,35 +40,53 @@
                     <label for="zona">Zona </label>
                     <select name="zona" id="zona">
                         <option value="Recepción">Recepción</option>
-                        <option value="Zona común">Zona común</option>
-                        <option value="Rectoria">Rectoria</option>
-                        <option value="0" > Ninguno</option>
+                        <option value="Preescolar">Preescolar </option>
+                        <option value="ZonasComunes">Zona común</option>
+                        <option value="Básicas" > Básicas</option>
                     </select>
                 </div>
+                <div id="select1"> </div>
+                <script> 
+                    let div = document.getElementById("select1");
+                    let zona = document.getElementById("zona");
+                    zona.addEventListener('change', (event) => {
+                    let resultado = event.target.value;
+                    console.log(resultado =='Recepción');
+                    if( resultado == 'Recepción'){
+                    console.log("hola");    
+                    //Create array of options to be added
+                    var array = ["Recepción","Rectoria","Dirección Administrativa","Zona común"];
 
-                <!-- <div>
-                    <label for="calZona">Calificación Zona </label>
-                    <input type="number" name="calZona" id="calZona" placeholder="Calificación Zona">
-                </div> -->
+              
+                    
+                    
+                    //Create and append the options
+                    for (var i = 0; i < array.length; i++) {
+                        var option = document.createElement("input");
+                        var label = document.createElement("label");
 
-                        
-                <div class ="espacio">
-                    <h3> Por favor seleccione el tipo de control que realizó</h3>
-                    <label for="tipoControl">Tipo Control </label>
-                    <select name="tipoControl" id="tipoControl">
-                        <option value="Limpieza">Limpieza</option>
-                        <option value="Desinfección">Desinfección</option>
-                        <option value="Higienización">Higienización</option>}
-                        <option value="Dotación"> Dotación</option>
-                        <option value="0" > Ninguno</option>
+                        label.htmlFor = array[i];
+                        label.innerHTML = array[i];
+                        div.appendChild(label);
+                        option.type = "checkbox";
+                        option.name = zona;
+                        option.id = array[i];
+                        option.value = array[i];
+                        option.text = array[i];
+                        div.appendChild(option);
+                    }
 
-                    </select>
-                </div>
+                    }
 
-                <!-- <div>
-                    <label for="calTipoControl">Calificación Tipo Control </label>
-                    <input type="number" name="calTipoControl" id="calTipoControl" placeholder="Calificación Tipo Control">
-                </div> -->
+                    
+                });
+                </script>
+
+ 
+
+
+
+
 
                 
                 <button type="submit">Enviar</button>

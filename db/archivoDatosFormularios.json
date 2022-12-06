@@ -14,5 +14,22 @@
   "usuario": "Steban123",
   "zona": "Rectoria",
   "tipoControl": "Higienización"
+ },
+ {
+  "id": 3,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Zona común",
+  "tipoControl": "Dotación"
+ },
+ {
+  "id": 4,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Rectoria",
+  "tipoControl": "Limpieza",
+  "fecha": "2022-12-06T18:23:19.454Z"
  }
 ]

@@ -23,6 +23,7 @@
         <h2> No hay datos </h1>
         <% } %> 
         <div id="mydiv" data-test=<%= datosCanvas %>></div>
+        <!-- <p id="prueba"></p> -->
      
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -44,8 +45,41 @@
             arregloControles.push(element.control);
         });
         
+      // const p = document.getElementById('prueba');
+      // let myArray = [1,1,2,2,5,4,6,7,8,8,8];
+      // let max = Math.max(...myArray);
+      // let max2 , contador = 0;
+      // let num = -1;
+      
+      // p.innerHTML = max;
+      //   for (let i = 0; i < myArray.length; i++) {
+      //       if (num == -1) {
+      //           num = myArray[i];
+      //           max2 = 1; 
+      //           contador = 1;
+      //           console.log("primera iteración", i);
+                 
+      //       }
+      //       else if (num == myArray[i]) {
+      //           contador++;
+      //           console.log(i);
+                
+      //           if (contador > max2) {
+      //               max2 = contador;
+                    
+      //           }
+      //       }
+      //       else {
+      //           num = myArray[i];
+      //           contador = 1;
+                
+      //       }
+      //      p.innerHTML = max2 + " " + num;
+      //   }
 
-       
+
+
+        
         
         new Chart(ctx, {
           type: 'bar',

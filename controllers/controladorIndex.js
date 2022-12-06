@@ -51,7 +51,8 @@ const controller = {
             sede: empleado.sede,
             usuario: empleado.usuario,
             zona: req.body.zona,
-            tipoControl: req.body.tipoControl
+            tipoControl: req.body.tipoControl,
+            fecha: new Date()
 
         
             
