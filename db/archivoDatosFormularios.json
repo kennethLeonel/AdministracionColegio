@@ -31,5 +31,13 @@
   "zona": "Rectoria",
   "tipoControl": "Limpieza",
   "fecha": "2022-12-06T18:23:19.454Z"
+ },
+ {
+  "id": 5,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Preescolar",
+  "fecha": "2022-12-06T20:50:31.929Z"
  }
 ]

@@ -41,27 +41,69 @@
                     <select name="zona" id="zona">
                         <option value="Recepción">Recepción</option>
                         <option value="Preescolar">Preescolar </option>
-                        <option value="ZonasComunes">Zona común</option>
+                        <option value="ZonasComunesPre">Zona comúnes Preescolar</option>
                         <option value="Básicas" > Básicas</option>
                     </select>
                 </div>
                 <div id="select1"> </div>
                 <script> 
+
                     let div = document.getElementById("select1");
+                   
                     let zona = document.getElementById("zona");
                     zona.addEventListener('change', (event) => {
                     let resultado = event.target.value;
                     console.log(resultado =='Recepción');
                     if( resultado == 'Recepción'){
-                    console.log("hola");    
-                    //Create array of options to be added
-                    var array = ["Recepción","Rectoria","Dirección Administrativa","Zona común"];
+                        div.innerHTML = "";
+                        console.log("hola");    
+                        //Create array of options to be added
+                        var array = ["Recepción","Rectoria","Dirección Administrativa","Zona común"];
+                        //Create and append the options
+                        crearElementos(array, resultado,div);
+                         // realziar parte dinamica de tipoControl
+                         var cboxes = document.getElementsByName(resultado);
+                         var len = cboxes.length;
+                         for (let  i = 0;  i < len;  i++) {
+                         cboxes[i].addEventListener('click', corroborar)
+                            
+                         }
 
-              
+                        
+
+                    }else if(resultado == 'Preescolar'){
+                        div.innerHTML = "";
+                        var array = ["Prejardin","Jardín","Transición","Salón de aislamiento y desinfección"];
+                        crearElementos(array, resultado,div);
+                         var cboxes = document.getElementsByName(resultado);
+                         var len = cboxes.length;
+                         for (let  i = 0;  i < len;  i++) {
+                         cboxes[i].addEventListener('click', corroborar)
+                            
+                         }
+
+                    } else if ( resultado =='ZonasComunesPre'){
+                        div.innerHTML = "";
+                        var array = ["Patio de juegos","Escalera","Baños"];
+                        crearElementos(array, resultado,div);
+                        var cboxes = document.getElementsByName(resultado);
+                         var len = cboxes.length;
+                         for (let  i = 0;  i < len;  i++) {
+                         cboxes[i].addEventListener('click', corroborar)
+                            
+                         }
+                       
+                    } else if ( resultado =='Básicas'){
+                        div.innerHTML = "";
+                        var array = ["Patio", "Baños y escaleras", "Salones piso 2-3 primaria", "Zona adminitrativa piso 2", "Salones piso 3-4 Bachillerato", "Laboratorios", "Cocina y escalera", "Punto de ingreso"];
+                        crearElementosOption(array, resultado,div);
+                    }
+
+
                     
-                    
-                    //Create and append the options
-                    for (var i = 0; i < array.length; i++) {
+                });
+                function crearElementos (array,zona,div){
+                        for (var i = 0; i < array.length; i++) {
                         var option = document.createElement("input");
                         var label = document.createElement("label");
 
@@ -75,11 +117,49 @@
                         option.text = array[i];
                         div.appendChild(option);
                     }
+                    };
+                    function crearElementosOption (array,zona,div){
+                        let select = document.createElement("select");
+                        select.id = zona; 
+                        for (var i = 0; i < array.length; i++) {
+                        var option = document.createElement("option");
 
+    
+                        option.id = array[i];
+                        option.value = array[i];
+                        option.text = array[i];
+                        select.appendChild(option);
                     }
+                    div.appendChild(select);
+                    };
 
-                    
-                });
+
+                    function corroborar(e){
+                                let divLimpieza ;
+                                let parrafo ;
+                              if (e.target.checked) {
+                                let arreglo = ['Limpieza', 'Desinfección', 'Higienización', 'Dotación', '0'];
+                                divLimpieza = document.createElement("div");
+                                divLimpieza.id =e.target.value+"contenedor";
+                                parrafo = document.createElement("p");
+                                parrafo.innerHTML = "llenar tipo control de la parte "+ e.target.value   ;
+                                div.appendChild(divLimpieza);
+                                divLimpieza.appendChild(parrafo);
+                                crearElementos(arreglo,e.target.value,divLimpieza);
+                              } else {
+
+                                // resultadosCheckBox.splice(resultadosCheckBox.indexOf(e.target.value), 1);
+                                
+                                let divEliminar = document.getElementById(e.target.value+"contenedor");
+                                console.log(divEliminar, "Este es ");
+                                div.removeChild(divEliminar);
+                               
+                               
+                              }
+                              
+
+
+                            }
                 </script>
 
  

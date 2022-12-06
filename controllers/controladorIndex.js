@@ -1,8 +1,13 @@
 const archivo = require('../db/funcionesArchvios');
 const archivosDatosFormularios = require('../db/funcionesArchivoDatosFormularios');
-const localStorage = require("localStorage");
-let usuario , contra;
 
+let usuario , contra;
+if (typeof localStorage === "undefined" || localStorage === null) {
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+  }
+  
+  
 const controller = {
 
     vista: (req, res) => {
@@ -16,12 +21,9 @@ const controller = {
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
       
         if(empleado != undefined){      
-
-
         localStorage.setItem('usuario', empleado.usuario);
-        localStorage.setItem('sede', empleado.sede);
-  
-      
+        localStorage.setItem('contra', empleado.contra);
+
         res.render('./formularioEmpleado', {empleadoLogin: empleado } );
         }else{
             res.render('./index', {error: "Usuario o contraseña incorrectos"});
@@ -34,7 +36,10 @@ const controller = {
     },
     vistaEmpleado : (req, res) => {
         const empleados = archivo.leerArchivo();
+        console.log(localStorage.getItem('usuario'));
+        console.log(localStorage.getItem('contra'));  
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
+       
         res.render('./formularioEmpleado', {empleadoLogin: empleado } );
 
        
@@ -43,7 +48,7 @@ const controller = {
         const datos = archivosDatosFormularios.leerArchivo();
         const empleados = archivo.leerArchivo();
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
-        
+        console.log(req.body, "req.body");
     
         const dato = {
             id: datos.length > 0 ? datos[datos.length - 1].id + 1 : 1,
