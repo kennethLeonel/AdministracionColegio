@@ -14,9 +14,9 @@ const controller = {
         res.render('../views/index');
     },
     realizarLogin: (req, res) => {
-        
-         usuario = req.body.usuario;
-         contra = req.body.contra;
+
+        usuario = req.body.usuario;
+        contra = req.body.contra;
         const empleados = archivo.leerArchivo();
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
       
@@ -36,8 +36,8 @@ const controller = {
     },
     vistaEmpleado : (req, res) => {
         const empleados = archivo.leerArchivo();
-        console.log(localStorage.getItem('usuario'));
-        console.log(localStorage.getItem('contra'));  
+        usuario =localStorage.getItem('usuario');
+         contra = localStorage.getItem('contra'); 
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
        
         res.render('./formularioEmpleado', {empleadoLogin: empleado } );
