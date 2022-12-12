@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,268 +11,274 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/formularioEmpleado.css">
     <script src="https://kit.fontawesome.com/c9d22b43b9.js" crossorigin="anonymous"></script>
- 
+
 
 </head>
+
 <body>
+
     <%- include('partials/navegacion') %>
-    <% if (locals.empleadoLogin) { %>
+        <% if (locals.empleadoLogin) { %>
 
-      
-           <% if (locals.empleadoLogin.sede) { %>
-            <h2 style="text-align :center"> tu sede es <%= locals.empleadoLogin.sede%></h2>
-            <form action="/formularioEmpleado" method="POST" id="formulario">
+            <% if (locals.empleadoLogin.sede) { %>
+                <h2 style="text-align :center"> tu sede es <%= locals.empleadoLogin.sede%>
+                </h2>
+
+                <form action="/formularioEmpleado" method="POST" id="formulario">
 
 
-                <div class="form">
-                    <div class ="espacio2">
-                    <h2> Formulario </h2>
-                </div>
-                    <h3> Por favor seleccione la Zona en la que realizó la labor</h3>
-                <div class ="espacio">
-                    <label for="zona">Zona </label>
-                    <select name="zona" id="zona">
-                        <option value="nulo"> Seleciona una Zona </option>
-                        <option value="Recepción">Recepción</option>
-                        <option value="Preescolar">Preescolar </option>
-                        <option value="ZonasComunesPre">Zona comúnes Preescolar</option>
-                        <option value="Básicas" > Básicas</option>
-                    </select>
-                </div>
-                <div id="select1"> </div>
-                <script> 
-                // Este es el llamado a Swal
-                    //     Swal.fire({
-                    //     icon: 'success',
-                    //     title: '¡Bienvenid@! <%= locals.empleadoLogin.nombre %>',
-                    //     text: 'Has iniciado sesión correctamente',
-                    //     showConfirmButton: false,
-                    //     timer: 4000
-                    // })
-                    let div = document.getElementById("select1");
-                   
-                    let zona = document.getElementById("zona");
-                    zona.addEventListener('change', (event) => {
-                    let resultado = event.target.value;
-                    console.log(resultado =='nulo');
-                    if( resultado == 'Recepción'){
-                        div.innerHTML = "";
-                        console.log("hola");    
-                        //Create array of options to be added
-                        var array = ["Recepción","Rectoria","Dirección Administrativa","Zona común"];
-                        //Create and append the options
-                        crearElementos(array, resultado,div);
-                         // realziar parte dinamica de tipoControl
-                         var cboxes = document.getElementsByName(resultado);
-                         var len = cboxes.length;
-                         for (let  i = 0;  i < len;  i++) {
-                         cboxes[i].addEventListener('click', corroborar)
-                            
-                         }
+                    <div class="form">
+                        <div class="espacio2">
+                            <h2> Formulario de labores </h2>
+                        </div>
+                        <h3> Por favor seleccione la Zona en la que realizó la labor</h3>
+                        <div class="espacio">
+                            <label for="zona">Zona </label>
+                            <select name="zona" id="zona">
+                                <option value="nulo"> Seleciona una Zona </option>
+                                <option value="Recepción">Recepción</option>
+                                <option value="Preescolar">Preescolar </option>
+                                <option value="ZonasComunesPre">Zona comúnes Preescolar</option>
+                                <option value="Básicas"> Básicas</option>
+                            </select>
+                        </div>
+                        <div id="select1"> </div>
+                        <script>
+                            // Este es el llamado a Swal
+                            //     Swal.fire({
+                            //     icon: 'success',
+                            //     title: '¡Bienvenid@! <%= locals.empleadoLogin.nombre %>',
+                            //     text: 'Has iniciado sesión correctamente',
+                            //     showConfirmButton: false,
+                            //     timer: 4000
+                            // })
+                            let div = document.getElementById("select1");
 
-                        
+                            let zona = document.getElementById("zona");
+                            zona.addEventListener('change', (event) => {
+                                let resultado = event.target.value;
+                                console.log(resultado == 'nulo');
+                                if (resultado == 'Recepción') {
+                                    div.innerHTML = "";
+                                    console.log("hola");
+                                    //Create array of options to be added
+                                    var array = ["Recepción", "Rectoria", "Dirección Administrativa", "Zona común"];
+                                    //Create and append the options
+                                    crearElementos(array, resultado, div);
+                                    // realziar parte dinamica de tipoControl
+                                    var cboxes = document.getElementsByName(resultado);
+                                    var len = cboxes.length;
+                                    for (let i = 0; i < len; i++) {
+                                        cboxes[i].addEventListener('click', corroborar)
 
-                    }else if(resultado == 'Preescolar'){
-                        div.innerHTML = "";
-                        var array = ["Prejardin","Jardín","Transición","Salón de aislamiento y desinfección"];
-                        crearElementos(array, resultado,div);
-                         var cboxes = document.getElementsByName(resultado);
-                         var len = cboxes.length;
-                         for (let  i = 0;  i < len;  i++) {
-                         cboxes[i].addEventListener('click', corroborar)
-                            
-                         }
+                                    }
 
-                    } else if ( resultado =='ZonasComunesPre'){
-                        div.innerHTML = "";
-                        var array = ["Patio de juegos","Escalera","Baños"];
-                        crearElementos(array, resultado,div);
-                        var cboxes = document.getElementsByName(resultado);
-                         var len = cboxes.length;
-                         for (let  i = 0;  i < len;  i++) {
-                         cboxes[i].addEventListener('click', corroborar)
-                            
-                         }
-                       
-                    } else if ( resultado =='Básicas'){
-                        div.innerHTML = "";
-                        let divBasicas = document.createElement("div");
-                        divBasicas.id = "divBasicas";
-                        var array = ["Selecciona una opción","Patio", "Baños y escaleras", "Salones piso 2-3 primaria", "Zona adminitrativa piso 2", "Salones piso 3-4 Bachillerato", "Laboratorios", "Cocina y escalera"];
-                        crearElementosOption(array, resultado,div,divBasicas);
-                        let divSelectBasicas = document.createElement("div");
-                        divSelectBasicas.id = "divSelectBasicas";
-                        divBasicas.appendChild(divSelectBasicas);
-                        let zonaBasicas = document.getElementById("Básicas");
-                        zonaBasicas.addEventListener('change', (event) => {
-                        let resultado = event.target.value;
-                        console.log(resultado);
-                        if (resultado =='Patio'){
-                            divSelectBasicas.innerHTML = "";
-                            var array = ["Patio","Cooperativa","Salón de aislamiento y desinfección","SHUT"];
-                            crearElementos(array, resultado,divSelectBasicas);
-                            var cboxes = document.getElementsByName(resultado);
-                            var len = cboxes.length;
-                            for (let  i = 0;  i < len;  i++) {
-                            cboxes[i].addEventListener('click', corroborar)
-                            
+
+
+                                } else if (resultado == 'Preescolar') {
+                                    div.innerHTML = "";
+                                    var array = ["Prejardin", "Jardín", "Transición", "Salón de aislamiento y desinfección"];
+                                    crearElementos(array, resultado, div);
+                                    var cboxes = document.getElementsByName(resultado);
+                                    var len = cboxes.length;
+                                    for (let i = 0; i < len; i++) {
+                                        cboxes[i].addEventListener('click', corroborar)
+
+                                    }
+
+                                } else if (resultado == 'ZonasComunesPre') {
+                                    div.innerHTML = "";
+                                    var array = ["Patio de juegos", "Escalera", "Baños"];
+                                    crearElementos(array, resultado, div);
+                                    var cboxes = document.getElementsByName(resultado);
+                                    var len = cboxes.length;
+                                    for (let i = 0; i < len; i++) {
+                                        cboxes[i].addEventListener('click', corroborar)
+
+                                    }
+
+                                } else if (resultado == 'Básicas') {
+                                    div.innerHTML = "";
+                                    let divBasicas = document.createElement("div");
+                                    divBasicas.id = "divBasicas";
+                                    var array = ["Selecciona una opción", "Patio", "Baños y escaleras", "Salones piso 2-3 primaria", "Zona adminitrativa piso 2", "Salones piso 3-4 Bachillerato", "Laboratorios", "Cocina y escalera"];
+                                    crearElementosOption(array, resultado, div, divBasicas);
+                                    let divSelectBasicas = document.createElement("div");
+                                    divSelectBasicas.id = "divSelectBasicas";
+                                    divBasicas.appendChild(divSelectBasicas);
+                                    let zonaBasicas = document.getElementById("Básicas");
+                                    zonaBasicas.addEventListener('change', (event) => {
+                                        let resultado = event.target.value;
+                                        console.log(resultado);
+                                        if (resultado == 'Patio') {
+                                            divSelectBasicas.innerHTML = "";
+                                            var array = ["Patio", "Cooperativa", "Salón de aislamiento y desinfección", "SHUT"];
+                                            crearElementos(array, resultado, divSelectBasicas);
+                                            var cboxes = document.getElementsByName(resultado);
+                                            var len = cboxes.length;
+                                            for (let i = 0; i < len; i++) {
+                                                cboxes[i].addEventListener('click', corroborar)
+
+                                            }
+                                        } else if (resultado == 'Baños y escaleras') {
+                                            divSelectBasicas.innerHTML = "";
+                                            var array = ["Escaleras piso 1-2", "Baños (piso 1.5)", "Escaleras piso 2-3", "Baños (piso 2.5)", "Escaleras piso 3-4", "Baños (piso 3.5)", "Escaleras piso 4-5", "Baños (piso 4.5)"];
+                                            crearElementos(array, resultado, divSelectBasicas);
+                                            var cboxes = document.getElementsByName(resultado);
+                                            var len = cboxes.length;
+                                            for (let i = 0; i < len; i++) {
+                                                cboxes[i].addEventListener('click', corroborar)
+                                            }
+
+                                        } else if (resultado == 'Salones piso 2-3 primaria') {
+                                            divSelectBasicas.innerHTML = "";
+                                            var array = ["Primero", "Segundo", "Tercero", "Cuarto", "Quinto"];
+                                            crearElementos(array, resultado, divSelectBasicas);
+                                            var cboxes = document.getElementsByName(resultado);
+                                            var len = cboxes.length;
+                                            for (let i = 0; i < len; i++) {
+                                                cboxes[i].addEventListener('click', corroborar)
+                                            }
+
+                                        } else if (resultado == 'Zona adminitrativa piso 2') {
+                                            divSelectBasicas.innerHTML = "";
+                                            var array = ["Oficina coordinador 1", "Oficina coordinador 2", "Enfermería", "Zona común coordinación", "Psicología", "Sala de profesores"];
+                                            crearElementos(array, resultado, divSelectBasicas);
+                                            var cboxes = document.getElementsByName(resultado);
+                                            var len = cboxes.length;
+                                            for (let i = 0; i < len; i++) {
+                                                cboxes[i].addEventListener('click', corroborar)
+                                            }
+                                        } else if (resultado == 'Salones piso 3-4 Bachillerato') {
+                                            divSelectBasicas.innerHTML = "";
+                                            var array = ["Sexto", "Séptimo", "octavo", "Noveno", "Décimo", "Once"];
+                                            crearElementos(array, resultado, divSelectBasicas);
+                                            var cboxes = document.getElementsByName(resultado);
+                                            var len = cboxes.length;
+                                            for (let i = 0; i < len; i++) {
+                                                cboxes[i].addEventListener('click', corroborar)
+                                            }
+                                        } else if (resultado == 'Laboratorios') {
+                                            divSelectBasicas.innerHTML = "";
+                                            var array = ["Sala de Informática", "Laboratorios de Ciencia", "Comedor"];
+                                            crearElementos(array, resultado, divSelectBasicas);
+                                            var cboxes = document.getElementsByName(resultado);
+                                            var len = cboxes.length;
+                                            for (let i = 0; i < len; i++) {
+                                                cboxes[i].addEventListener('click', corroborar)
+                                            }
+                                        } else if (resultado == 'Cocina y escalera') {
+                                            divSelectBasicas.innerHTML = "";
+                                            var array = ["Escalera piso 5-6", "Cocina"];
+                                            crearElementos(array, resultado, divSelectBasicas);
+                                            var cboxes = document.getElementsByName(resultado);
+                                            var len = cboxes.length;
+                                            for (let i = 0; i < len; i++) {
+                                                cboxes[i].addEventListener('click', corroborar)
+                                            }
+                                        } else if (resultado == 'Selecciona una opción') {
+                                            divSelectBasicas.innerHTML = "";
+                                        }
+
+                                    });
+
+
+                                } else if (resultado == 'nulo') {
+                                    div.innerHTML = "";
+                                }
+
+
+
+                            });
+                            function crearElementos(array, zona, div) {
+                                for (var i = 0; i < array.length; i++) {
+                                    var option = document.createElement("input");
+                                    var label = document.createElement("label");
+
+                                    label.htmlFor = array[i];
+                                    label.innerHTML = array[i];
+                                    div.appendChild(label);
+                                    option.type = "checkbox";
+                                    option.name = zona;
+                                    option.id = array[i];
+                                    option.value = array[i];
+                                    option.text = array[i];
+                                    div.appendChild(option);
+                                }
+                            };
+                            function crearElementosOption(array, zona, div, divBasicas) {
+
+                                let select = document.createElement("select");
+                                select.id = zona;
+                                for (var i = 0; i < array.length; i++) {
+                                    var option = document.createElement("option");
+
+
+                                    option.id = array[i];
+                                    option.value = array[i];
+                                    option.text = array[i];
+                                    select.appendChild(option);
+                                }
+                                divBasicas.appendChild(select);
+                                div.appendChild(divBasicas);
+                            };
+
+
+                            function corroborar(e) {
+                                let divLimpieza;
+                                let parrafo;
+                                if (e.target.checked) {
+                                    let arreglo = ['Limpieza', 'Desinfección', 'Higienización', 'Dotación', 'Ninguno'];
+                                    divLimpieza = document.createElement("div");
+                                    divLimpieza.id = e.target.value + "contenedor";
+                                    parrafo = document.createElement("p");
+                                    parrafo.innerHTML = "llenar tipo control de la parte " + e.target.value;
+                                    div.appendChild(divLimpieza);
+                                    divLimpieza.appendChild(parrafo);
+                                    crearElementos(arreglo, e.target.value, divLimpieza);
+                                } else {
+
+                                    // resultadosCheckBox.splice(resultadosCheckBox.indexOf(e.target.value), 1);
+
+                                    let divEliminar = document.getElementById(e.target.value + "contenedor");
+                                    console.log(divEliminar, "Este es ");
+                                    div.removeChild(divEliminar);
+
+
+                                }
+
+
+
                             }
-                        } else if ( resultado == 'Baños y escaleras'){
-                            divSelectBasicas.innerHTML = "";
-                            var array = ["Escaleras piso 1-2","Baños (piso 1.5)","Escaleras piso 2-3","Baños (piso 2.5)","Escaleras piso 3-4","Baños (piso 3.5)","Escaleras piso 4-5","Baños (piso 4.5)"];
-                            crearElementos(array, resultado,divSelectBasicas);
-                            var cboxes = document.getElementsByName(resultado);
-                            var len = cboxes.length;
-                            for (let  i = 0;  i < len;  i++) {
-                            cboxes[i].addEventListener('click', corroborar) 
-                            }
-                            
-                        } else if (resultado == 'Salones piso 2-3 primaria'){
-                            divSelectBasicas.innerHTML = "";
-                            var array = ["Primero","Segundo","Tercero","Cuarto","Quinto"];
-                            crearElementos(array, resultado,divSelectBasicas);
-                            var cboxes = document.getElementsByName(resultado);
-                            var len = cboxes.length;
-                            for (let  i = 0;  i < len;  i++) {
-                            cboxes[i].addEventListener('click', corroborar) 
-                            }
-
-                        } else if (resultado == 'Zona adminitrativa piso 2'){
-                            divSelectBasicas.innerHTML = "";
-                            var array = ["Oficina coordinador 1","Oficina coordinador 2","Enfermería","Zona común coordinación","Psicología", "Sala de profesores"];
-                            crearElementos(array, resultado,divSelectBasicas);
-                            var cboxes = document.getElementsByName(resultado);
-                            var len = cboxes.length;
-                            for (let  i = 0;  i < len;  i++) {
-                            cboxes[i].addEventListener('click', corroborar) 
-                            }
-                        } else if (resultado == 'Salones piso 3-4 Bachillerato'){
-                            divSelectBasicas.innerHTML = "";
-                            var array = ["Sexto","Séptimo","octavo","Noveno","Décimo", "Once"];
-                            crearElementos(array, resultado,divSelectBasicas);
-                            var cboxes = document.getElementsByName(resultado);
-                            var len = cboxes.length;
-                            for (let  i = 0;  i < len;  i++) {
-                            cboxes[i].addEventListener('click', corroborar) 
-                            }
-                        } else if (resultado == 'Laboratorios'){
-                            divSelectBasicas.innerHTML = "";
-                            var array = ["Sala de Informática","Laboratorios de Ciencia","Comedor"];
-                            crearElementos(array, resultado,divSelectBasicas);
-                            var cboxes = document.getElementsByName(resultado);
-                            var len = cboxes.length;
-                            for (let  i = 0;  i < len;  i++) {
-                            cboxes[i].addEventListener('click', corroborar) 
-                            }
-                        } else if (resultado == 'Cocina y escalera'){
-                            divSelectBasicas.innerHTML = "";
-                            var array = ["Escalera piso 5-6", "Cocina"];
-                            crearElementos(array, resultado,divSelectBasicas);
-                            var cboxes = document.getElementsByName(resultado);
-                            var len = cboxes.length;
-                            for (let  i = 0;  i < len;  i++) {
-                            cboxes[i].addEventListener('click', corroborar) 
-                            }
-                        } else if (resultado == 'Selecciona una opción'){
-                            divSelectBasicas.innerHTML = "";
-                        }
-
-                        });
-
-
-                    }else if ( resultado =='nulo'){
-                        div.innerHTML = "";
-                    }
-
-
-                    
-                });
-                function crearElementos (array,zona,div){
-                        for (var i = 0; i < array.length; i++) {
-                        var option = document.createElement("input");
-                        var label = document.createElement("label");
-
-                        label.htmlFor = array[i];
-                        label.innerHTML = array[i];
-                        div.appendChild(label);
-                        option.type = "checkbox";
-                        option.name = zona;
-                        option.id = array[i];
-                        option.value = array[i];
-                        option.text = array[i];
-                        div.appendChild(option);
-                    }
-                    };
-                    function crearElementosOption (array,zona,div,divBasicas){
-                      
-                        let select = document.createElement("select");
-                        select.id = zona; 
-                        for (var i = 0; i < array.length; i++) {
-                        var option = document.createElement("option");
-
-    
-                        option.id = array[i];
-                        option.value = array[i];
-                        option.text = array[i];
-                        select.appendChild(option);
-                    }
-                    divBasicas.appendChild(select);
-                    div.appendChild(divBasicas);
-                    };
-
-
-                    function corroborar(e){
-                                let divLimpieza ;
-                                let parrafo ;
-                              if (e.target.checked) {
-                                let arreglo = ['Limpieza', 'Desinfección', 'Higienización', 'Dotación', 'Ninguno'];
-                                divLimpieza = document.createElement("div");
-                                divLimpieza.id =e.target.value+"contenedor";
-                                parrafo = document.createElement("p");
-                                parrafo.innerHTML = "llenar tipo control de la parte "+ e.target.value   ;
-                                div.appendChild(divLimpieza);
-                                divLimpieza.appendChild(parrafo);
-                                crearElementos(arreglo,e.target.value,divLimpieza);
-                              } else {
-
-                                // resultadosCheckBox.splice(resultadosCheckBox.indexOf(e.target.value), 1);
-                                
-                                let divEliminar = document.getElementById(e.target.value+"contenedor");
-                                console.log(divEliminar, "Este es ");
-                                div.removeChild(divEliminar);
-                               
-                               
-                              }
-                              
-
-
-                            }
-                </script>
-
- 
+                        </script>
 
 
 
 
 
-                
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
 
-        <% } else {  %>
-            <h2> no hay sede</h2>
-            <% } %>
-     
-    <% } %>
+                        <button type="submit">Enviar</button>
+                    </div>
+                </form>
+               
 
 
-    
 
 
-    <!-- Prueba -->
+                <% } else { %>
+                    <h2> no hay sede</h2>
+                    <% } %>
 
-       
+                        <% } %>
+
+
+
+
+
+                            <!-- Prueba -->
+
+
 
 </body>
+
 </html>

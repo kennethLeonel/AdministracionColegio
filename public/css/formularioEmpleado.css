@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
   }
+  body {
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+    background: rgba( 71, 147, 227, 1);
+  }
   
   :root {
   --primary-color: #D96AA7;
@@ -39,12 +44,12 @@
   }
   .form {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 15%;
+    left: 33%;
     transform: translate(-50%, -50%);
     max-width: 50%;
     text-align: center;
-    margin: auto;
+    margin: 0 auto;
     max-width: 450px;
     border: 15px solid #fff;
     background: #ffffff;
@@ -55,6 +60,7 @@
     padding-bottom: 2%;
     border: 1px solid #aaa;
     text-align: center;
+    transform: translateY(0px);
 
 }
 
@@ -107,6 +113,7 @@
     margin: 0 auto;
 }
 
+  
 .form-element {
     display: block;
     width: 80%;
@@ -124,7 +131,13 @@
   margin-bottom: 60px;
 }
 
-
-  
-
+.box {
+  width: 370px;
+  height: 100px;
+  margin: auto;
+  outline: solid purple 2px;
+  overflow: hidden;
+  padding-top: 10px;
+}
+    
   
