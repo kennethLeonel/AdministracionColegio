@@ -62,7 +62,7 @@
                                     div.innerHTML = "";
                                     console.log("hola");
                                     //Create array of options to be added
-                                    var array = ["Recepción", "Rectoria", "Dirección Administrativa", "Zona común"];
+                                    var array = ["Espacio Recepción", "Rectoria", "Dirección Administrativa", "Zona común"];
                                     //Create and append the options
                                     crearElementos(array, resultado, div);
                                     // realziar parte dinamica de tipoControl
@@ -112,7 +112,7 @@
                                         console.log(resultado);
                                         if (resultado == 'Patio') {
                                             divSelectBasicas.innerHTML = "";
-                                            var array = ["Patio", "Cooperativa", "Salón de aislamiento y desinfección", "SHUT"];
+                                            var array = ["Patio Básicas", "Cooperativa", "Salón de aislamiento y desinfección", "SHUT"];
                                             crearElementos(array, resultado, divSelectBasicas);
                                             var cboxes = document.getElementsByName(resultado);
                                             var len = cboxes.length;

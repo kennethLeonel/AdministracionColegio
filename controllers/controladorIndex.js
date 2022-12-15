@@ -48,24 +48,48 @@ const controller = {
         const datos = archivosDatosFormularios.leerArchivo();
         const empleados = archivo.leerArchivo();
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
-        console.log(req.body, "req.body");
-    
+        let datosForm = req.body;
+        // for (let clave in datosForm){
+        //     console.log(datosForm[clave]);
+        //   }
+        let arreglofinal = [];
+        let claves = Object.keys(datosForm); // claves = ["zona", "subzona", "tipoControl", "edad"]
+        for(let i=0; i< claves.length; i++){
+        let clave = claves[i];
+        let valor = datosForm[clave];
+        arreglofinal.push({
+            clave: clave,
+            valor: valor
+        }); 
+        }   
+       
+        
+
+
+
         const dato = {
             id: datos.length > 0 ? datos[datos.length - 1].id + 1 : 1,
-            nombre: empleado.nombre,
+            nombre: empleado.nombre, 
             sede: empleado.sede,
             usuario: empleado.usuario,
-            zona: req.body.zona,
-            tipoControl: req.body.tipoControl,
-            fecha: new Date()
-
-        
-            
+            zona: arreglofinal[0].valor,
+            subZonas: arreglofinal[1].valor,
+            tipoControl: arreglofinal.slice(2,20),
+            fecha: new Date()      
         }
-        datos.push(dato);
-        archivosDatosFormularios.escribirArchivo(datos);
-        console.log("Se creo datos form");
-        res.redirect('./administrador'); // Hacer una vista Home 
+        console.log(dato, "esto es lo que guardoi");
+    
+        agregarDato(dato);
+
+        function agregarDato (dato){
+
+            datos.push(dato);
+            archivosDatosFormularios.escribirArchivo(datos);
+            console.log("Se creo datos form");
+            res.redirect('./administrador'); // Hacer una vista Home 
+        }
+        
+      
 
     },
     vistaHome: (req, res) => {  

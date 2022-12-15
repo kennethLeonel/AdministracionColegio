@@ -1,75 +1,97 @@
 [
  {
   "id": 1,
-  "nombre": "Kenneth11",
-  "sede": "Bosa",
-  "usuario": "leonelken",
-  "zona": "Zona común",
-  "tipoControl": "Desinfección"
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Recepción",
+  "subZonas": [
+   "Espacio Recepción",
+   "Rectoria",
+   "Dirección Administrativa",
+   "Zona común"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Espacio Recepción",
+    "valor": [
+     "Limpieza",
+     "Desinfección",
+     "Higienización"
+    ]
+   },
+   {
+    "clave": "Zona común",
+    "valor": [
+     "Higienización",
+     "Dotación"
+    ]
+   },
+   {
+    "clave": "Rectoria",
+    "valor": "Desinfección"
+   },
+   {
+    "clave": "Dirección Administrativa",
+    "valor": "Dotación"
+   }
+  ],
+  "fecha": "2022-12-15T03:21:13.624Z"
  },
  {
   "id": 2,
   "nombre": "Steban",
   "sede": "Chapiñero",
   "usuario": "Steban123",
-  "zona": "Rectoria",
-  "tipoControl": "Higienización"
+  "zona": "Básicas",
+  "subZonas": [
+   "Patio Básicas",
+   "Cooperativa",
+   "Salón de aislamiento y desinfección",
+   "SHUT"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Patio Básicas",
+    "valor": [
+     "Limpieza",
+     "Desinfección"
+    ]
+   },
+   {
+    "clave": "Cooperativa",
+    "valor": [
+     "Desinfección",
+     "Higienización"
+    ]
+   },
+   {
+    "clave": "SHUT",
+    "valor": "Desinfección"
+   },
+   {
+    "clave": "Salón de aislamiento y desinfección",
+    "valor": "Desinfección"
+   }
+  ],
+  "fecha": "2022-12-15T03:22:23.994Z"
  },
  {
   "id": 3,
   "nombre": "Kenneth11",
   "sede": "Bosa",
   "usuario": "leonelken",
-  "zona": "Zona común",
-  "tipoControl": "Dotación"
- },
- {
-  "id": 4,
-  "nombre": "Kenneth11",
-  "sede": "Bosa",
-  "usuario": "leonelken",
-  "zona": "Rectoria",
-  "tipoControl": "Limpieza",
-  "fecha": "2022-12-06T18:23:19.454Z"
- },
- {
-  "id": 5,
-  "nombre": "Kenneth11",
-  "sede": "Bosa",
-  "usuario": "leonelken",
   "zona": "Preescolar",
-  "fecha": "2022-12-06T20:50:31.929Z"
- },
- {
-  "id": 6,
-  "nombre": "Kenneth11",
-  "sede": "Bosa",
-  "usuario": "leonelken",
-  "zona": "ZonasComunesPre",
-  "fecha": "2022-12-07T18:27:45.472Z"
- },
- {
-  "id": 7,
-  "nombre": "Kenneth11",
-  "sede": "Bosa",
-  "usuario": "leonelken",
-  "zona": "Recepción",
-  "fecha": "2022-12-07T18:28:04.551Z"
- },
- {
-  "id": 8,
-  "nombre": "Kenneth11",
-  "sede": "Bosa",
-  "usuario": "leonelken",
-  "zona": "Básicas",
-  "fecha": "2022-12-07T18:28:36.767Z"
- },
- {
-  "id": 9,
-  "nombre": "Kenneth11",
-  "sede": "Bosa",
-  "usuario": "leonelken",
-  "zona": "Básicas",
-  "fecha": "2022-12-07T19:11:39.596Z"
+  "subZonas": "Prejardin",
+  "tipoControl": [
+   {
+    "clave": "Prejardin",
+    "valor": [
+     "Desinfección",
+     "Higienización"
+    ]
+   }
+  ],
+  "fecha": "2022-12-15T03:22:56.960Z"
  }
 ]
