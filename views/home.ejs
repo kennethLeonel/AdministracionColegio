@@ -11,7 +11,7 @@
     <% if (locals.datos) { %>
         <div id="chartContainer">
             <canvas id="barra"> </canvas>
-            <% var datosCanvas = [] %>
+           <% var datosCanvas = [] %>
            <% for( let index = 0; index < datos.length; index++ ) { %>
                 <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl } %>
                 <% datosCanvas.push(obj) %>
@@ -22,7 +22,7 @@
     <% }else{ %>
         <h2> No hay datos </h1>
         <% } %> 
-        <div id="mydiv" data-test=<%= datosCanvas %>></div>
+        <div id="mydiv" data-test=<%= datosCanvas %>></div> 
         <!-- <p id="prueba"></p> -->
      
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -30,67 +30,41 @@
         
         const ctx = document.getElementById('barra');
         let datosEmpleados = <%- JSON.stringify(datosCanvas) %>;
+        
         // console.log(getArray[0])
         // var nombresEmpleados =  document.getElementById('mydiv').dataset.test
   
         let arregloNombres = [];
         let arregloSedes = [];
         let arregloZonas = [];
+        let arregloControlesNombre = [];
         let arregloControles = [];
 
         datosEmpleados.forEach(element => {
-            arregloNombres.push(element.nombre);
-            arregloSedes.push(element.sede);
-            arregloZonas.push(element.zona);
-            arregloControles.push(element.control);
+            element.control.forEach(tipo => {
+              arregloControlesNombre.push(tipo.clave)
+              if (!Array.isArray(tipo.valor)) {
+                arregloControles.push(1)
+              }else {
+              arregloControles.push(tipo.valor.length )
+            }
+            })
+            
+            // arregloNombres.push(element.nombre);
+            // arregloSedes.push(element.sede);
+            // arregloZonas.push(element.zona);
+            // arregloControles.push(element.control); 
         });
-        
-      // const p = document.getElementById('prueba');
-      // let myArray = [1,1,2,2,5,4,6,7,8,8,8];
-      // let max = Math.max(...myArray);
-      // let max2 , contador = 0;
-      // let num = -1;
-      
-      // p.innerHTML = max;
-      //   for (let i = 0; i < myArray.length; i++) {
-      //       if (num == -1) {
-      //           num = myArray[i];
-      //           max2 = 1; 
-      //           contador = 1;
-      //           console.log("primera iteración", i);
-                 
-      //       }
-      //       else if (num == myArray[i]) {
-      //           contador++;
-      //           console.log(i);
-                
-      //           if (contador > max2) {
-      //               max2 = contador;
-                    
-      //           }
-      //       }
-      //       else {
-      //           num = myArray[i];
-      //           contador = 1;
-                
-      //       }
-      //      p.innerHTML = max2 + " " + num;
-      //   }
-
-
-
-        
-        
         new Chart(ctx, {
           type: 'bar',
           data: {
-            labels: arregloNombres,
+            labels: arregloControlesNombre  ,
             datasets: [{
-              label: 'nombre empleado',
-              data: [4 , 3],
-              borderWidth: 1
+              label: 'Cantidad Tipo de control',
+              data: arregloControles, 
+              borderWidth: 2,
             }]
-          },
+          },  
           options: {
             scales: {
               y: {

@@ -75,7 +75,9 @@ const controller = {
             zona: arreglofinal[0].valor,
             subZonas: arreglofinal[1].valor,
             tipoControl: arreglofinal.slice(2,20),
-            fecha: new Date()      
+            // FECHA UTC DE COLOMBIA
+            fecha : new Date().toLocaleString("es-CO", {timeZone: "America/Bogota"}),
+               
         }
         console.log(dato, "esto es lo que guardoi");
     
