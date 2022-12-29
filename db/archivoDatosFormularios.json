@@ -92,5 +92,24 @@
    }
   ],
   "fecha": "27/12/2022, 11:22:53 p. m."
+ },
+ {
+  "id": 9,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Recepción",
+  "subZonas": "Espacio Recepción",
+  "tipoControl": [
+   {
+    "clave": "Espacio Recepción",
+    "valor": [
+     "Limpieza",
+     "Desinfección",
+     "Dotación"
+    ]
+   }
+  ],
+  "fecha": "28/12/2022, 9:51:51 p. m."
  }
 ]

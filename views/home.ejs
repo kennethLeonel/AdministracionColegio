@@ -8,6 +8,16 @@
 </head>
 <body>
     <h1> Chart</h1>
+    <div id="optionsContainer">
+      <select name="zona" id="zona">
+        <option value="nulo"> Seleciona una Zona </option>
+        <option value="Recepción">Recepción</option>
+        <option value="Preescolar">Preescolar </option>
+        <option value="ZonasComunesPre">Zona comúnes Preescolar</option>
+        <option value="Básicas"> Básicas</option>
+      </select>
+    </div> 
+    <h2 id="subtitulo"></h2>
     <% if (locals.datos) { %>
         <div id="chartContainer">
             <canvas id="barra"> </canvas>
@@ -21,58 +31,247 @@
         </div>
     <% }else{ %>
         <h2> No hay datos </h1>
-        <% } %> 
+        <% } %>
+         
         <div id="mydiv" data-test=<%= datosCanvas %>></div> 
         <!-- <p id="prueba"></p> -->
      
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        
+
         const ctx = document.getElementById('barra');
         let datosEmpleados = <%- JSON.stringify(datosCanvas) %>;
-        
+
+        let arregloControlesContador= [0,0,0,0];
+        let arregloControlesNombre = ['Limpieza', 'Desinfección', 'Higienización', 'Dotación'];
+
+
         // console.log(getArray[0])
         // var nombresEmpleados =  document.getElementById('mydiv').dataset.test
-  
-        let arregloNombres = [];
-        let arregloSedes = [];
-        let arregloZonas = [];
-        let arregloControlesNombre = [];
-        let arregloControles = [];
+        // tomar select de la zona
+        let zona = document.getElementById("zona");
+        let resultado;
+        let div = document.getElementById("optionsContainer");
+        let subtitulo = document.getElementById("subtitulo");
+        let div2 = document.createElement("div");
+            div.appendChild(div2);
+            div2.id = "divBasicas";
+        zona.addEventListener('change', (event) => {
+          resultado = event.target.value;
+          console.log(resultado, "este es el resultado")
+          if (resultado == "nulo") {
+            subtitulo.innerHTML = "No hay datos";
+          }else  if (resultado == "Recepción") {
+              subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción";
+            div2.innerHTML = ""; 
+            var array = ["Selecciona una opción","Espacio Recepción", "Rectoria", "Dirección Administrativa", "Zona común"];
+            crearElementosOption(array, resultado, div, div2);
+            let select = document.getElementById(resultado);
+            select.addEventListener('change', (event) => {
+              let resultado2 = event.target.value;
+              console.log(resultado2, "este es el resultado2")
+              if (resultado2 == "Espacio Recepción") {
 
-        datosEmpleados.forEach(element => {
-            element.control.forEach(tipo => {
-              arregloControlesNombre.push(tipo.clave)
-              if (!Array.isArray(tipo.valor)) {
-                arregloControles.push(1)
-              }else {
-              arregloControles.push(tipo.valor.length )
-            }
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Espacio Recepción";
+                let arregloControlesContador= [0,0,0,0];
+                datosEmpleados.forEach(element => {
+                  if (element.zona == resultado ){
+                    console.log(element, "este es el objeto")
+                    element.control.forEach(tipo => {
+                    
+                    if(tipo.clave == resultado2){
+                      if (!Array.isArray(tipo.valor)) {
+                        if (tipo.valor == "Limpieza") {
+                          arregloControlesContador[0] += 1;
+                        }else if (tipo.valor == "Desinfección") {
+                          arregloControlesContador[1] += 1;
+                        }else if (tipo.valor == "Higienización") {
+                          arregloControlesContador[2] += 1;
+                        }else if (tipo.valor == "Dotación") {
+                          arregloControlesContador[3] += 1;
+                        }
+                        console.log(arregloControlesContador, "este es el arreglo")
+                       }else {
+
+                        tipo.valor.forEach(element => {
+                          if (element == "Limpieza") {
+                            arregloControlesContador[0] += 1;
+                          }else if (element == "Desinfección") {
+                            arregloControlesContador[1] += 1;
+                          }else if (element == "Higienización") {
+                            arregloControlesContador[2] += 1;
+                          }else if (element == "Dotación") {
+                            arregloControlesContador[3] += 1;
+                          }
+                        });
+                        console.log(arregloControlesContador, "este es el arreglo")
+                      }
+                      
+                    }
+                    })
+                  }
+
+              });
+              crearCanva (arregloControlesNombre, arregloControlesContador);
+              }else if (resultado2 == "Rectoria") {
+                let arregloControlesContador= [0,0,0,0];
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Rectoria";
+                datosEmpleados.forEach(element => {
+                  if (element.zona == resultado ){
+                    console.log(element, "este es el objeto")
+                    element.control.forEach(tipo => {
+                    
+                    if(tipo.clave == resultado2){
+                      if (!Array.isArray(tipo.valor)) {
+                        if (tipo.valor == "Limpieza") {
+                          arregloControlesContador[0] += 1;
+                        }else if (tipo.valor == "Desinfección") {
+                          arregloControlesContador[1] += 1;
+                        }else if (tipo.valor == "Higienización") {
+                          arregloControlesContador[2] += 1;
+                        }else if (tipo.valor == "Dotación") {
+                          arregloControlesContador[3] += 1;
+                        }
+                        console.log(arregloControlesContador, "este es el arreglo")
+                       }else {
+
+                        tipo.valor.forEach(element => {
+                          if (element == "Limpieza") {
+                            arregloControlesContador[0] += 1;
+                          }else if (element == "Desinfección") {
+                            arregloControlesContador[1] += 1;
+                          }else if (element == "Higienización") {
+                            arregloControlesContador[2] += 1;
+                          }else if (element == "Dotación") {
+                            arregloControlesContador[3] += 1;
+                          }
+                        });
+                        console.log(arregloControlesContador, "este es el arreglo")
+                      }
+                      
+                    }
+                    })
+                  }
+
+              });
+              crearCanva (arregloControlesNombre, arregloControlesContador);
+
+
+
+
+              }else if (resultado2 == "Dirección Administrativa") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Dirección Administrativa";
+              }else if (resultado2 == "Zona común") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Zona común";
+              }
+            }) 
+                                 
+          }else if (resultado == "Preescolar") {
+            div2.innerHTML = ""; 
+            subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar";
+            var array = ["Selecciona una opción","Prejardin", "Jardín", "Transición", "Salón de aislamiento y desinfección"];
+            crearElementosOption(array, resultado, div, div2);
+            let select = document.getElementById(resultado);
+            select.addEventListener('change', (event) => {
+              let resultado2 = event.target.value;
+              console.log(resultado2, "este es el resultado2")
+              if (resultado2 == "Prejardin") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Prejardin";
+              }else if (resultado2 == "Jardín") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Jardín";
+              }else if (resultado2 == "Transición") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Transición";
+              }else if (resultado2 == "Salón de aislamiento y desinfección") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Salón de aislamiento y desinfección";
+              }
             })
-            
-            // arregloNombres.push(element.nombre);
-            // arregloSedes.push(element.sede);
-            // arregloZonas.push(element.zona);
-            // arregloControles.push(element.control); 
-        });
-        new Chart(ctx, {
+          }else if (resultado == "ZonasComunesPre") {
+            div2.innerHTML = ""; 
+            subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar";
+            var array = ["Selecciona una opción","Patio de juegos", "Escalera", "Baños"];
+            crearElementosOption(array, resultado, div, div2);
+            let select = document.getElementById(resultado);
+            select.addEventListener('change', (event) => {
+              let resultado2 = event.target.value;
+              console.log(resultado2, "este es el resultado2")
+              if (resultado2 == "Patio de juegos") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Patio de juegos";
+              }else if (resultado2 == "Escalera") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Escalera";
+              }else if (resultado2 == "Baños") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Baños";
+              }
+            })
+          }else if (resultado == "Básicas") {
+            div2.innerHTML = "";  
+            subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas";
+            var array = ["Selecciona una opción", "Patio", "Baños y escaleras", "Salones piso 2-3 primaria", "Zona adminitrativa piso 2", "Salones piso 3-4 Bachillerato", "Laboratorios", "Cocina y escalera"];
+            crearElementosOption(array, resultado, div, div2);
+            let select = document.getElementById(resultado);
+            select.addEventListener('change', (event) => {
+              let resultado2 = event.target.value;
+              console.log(resultado2, "este es el resultado2")
+              if (resultado2 == "Selecciona una opción") {
+                subtitulo.innerHTML = "No hay datos";
+              }else if (resultado2 == "Patio") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Patio";
+              }else if (resultado2 == "Baños y escaleras") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Baños y escaleras";
+              }else if (resultado2 == "Salones piso 2-3 primaria") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 2-3 primaria";
+              }else if (resultado2 == "Zona adminitrativa piso 2") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Zona adminitrativa piso 2";
+              }else if (resultado2 == "Salones piso 3-4 Bachillerato") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 3-4 Bachillerato";
+              }else if (resultado2 == "Laboratorios") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Laboratorios";
+              }else if (resultado2 == "Cocina y escalera") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Cocina y escalera";
+              }
+            })
+
+          } 
+
+          
+          })  
+
+
+        function crearCanva ( arregloControlesNombre , arregloControlesContador) {
+          new Chart(ctx, {
           type: 'bar',
           data: {
             labels: arregloControlesNombre  ,
             datasets: [{
               label: 'Cantidad Tipo de control',
-              data: arregloControles, 
+              data: arregloControlesContador, 
               borderWidth: 2,
             }]
           },  
-          options: {
+          options: {  
             scales: {
               y: {
                 beginAtZero: true
               }
             }
           }
-        });
+            });
+        }
+        function crearElementosOption(array, zona, div, divBasicas) {
+          let select = document.createElement("select");
+          select.id = zona;
+          for (var i = 0; i < array.length; i++) {
+              var option = document.createElement("option");
+
+
+              option.id = array[i];
+              option.value = array[i];  
+              option.text = array[i];
+              select.appendChild(option);
+          }
+          divBasicas.appendChild(select);
+          div.appendChild(divBasicas);
+          };
+       
     </script>
 </body>
 </html>
