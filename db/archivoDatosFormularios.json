@@ -111,5 +111,171 @@
    }
   ],
   "fecha": "28/12/2022, 9:51:51 p. m."
+ },
+ {
+  "id": 10,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Recepción",
+  "subZonas": "Dirección Administrativa",
+  "tipoControl": [
+   {
+    "clave": "Dirección Administrativa",
+    "valor": [
+     "Limpieza",
+     "Higienización"
+    ]
+   }
+  ],
+  "fecha": "5/1/2023, 8:20:20 a. m."
+ },
+ {
+  "id": 11,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Recepción",
+  "subZonas": [
+   "Dirección Administrativa",
+   "Zona común"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Zona común",
+    "valor": [
+     "Higienización",
+     "Dotación"
+    ]
+   },
+   {
+    "clave": "Dirección Administrativa",
+    "valor": [
+     "Limpieza",
+     "Desinfección",
+     "Higienización",
+     "Dotación"
+    ]
+   }
+  ],
+  "fecha": "5/1/2023, 8:26:34 a. m."
+ },
+ {
+  "id": 12,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Preescolar",
+  "subZonas": [
+   "Prejardin",
+   "Jardín",
+   "Transición",
+   "Salón de aislamiento y desinfección"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Prejardin",
+    "valor": "Limpieza"
+   },
+   {
+    "clave": "Jardín",
+    "valor": "Desinfección"
+   },
+   {
+    "clave": "Transición",
+    "valor": "Higienización"
+   },
+   {
+    "clave": "Salón de aislamiento y desinfección",
+    "valor": "Dotación"
+   }
+  ],
+  "fecha": "5/1/2023, 8:32:28 a. m."
+ },
+ {
+  "id": 13,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "ZonasComunesPre",
+  "subZonas": [
+   "Patio de juegos",
+   "Escalera",
+   "Baños"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Patio de juegos",
+    "valor": [
+     "Limpieza",
+     "Desinfección"
+    ]
+   },
+   {
+    "clave": "Escalera",
+    "valor": [
+     "Desinfección",
+     "Higienización"
+    ]
+   },
+   {
+    "clave": "Baños",
+    "valor": [
+     "Higienización",
+     "Dotación"
+    ]
+   }
+  ],
+  "fecha": "5/1/2023, 8:38:38 a. m."
+ },
+ {
+  "id": 14,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Básicas",
+  "subZonas": [
+   "Patio Básicas",
+   "Cooperativa",
+   "Salón de aislamiento y desinfección",
+   "SHUT"
+  ],
+  "tipoControl": [
+   {
+    "clave": "SHUT",
+    "valor": "Dotación"
+   },
+   {
+    "clave": "Salón de aislamiento y desinfección",
+    "valor": "Higienización"
+   },
+   {
+    "clave": "Cooperativa",
+    "valor": "Desinfección"
+   },
+   {
+    "clave": "Patio Básicas",
+    "valor": "Limpieza"
+   }
+  ],
+  "fecha": "5/1/2023, 9:15:26 a. m."
+ },
+ {
+  "id": 15,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Básicas",
+  "subZonas": "Escaleras piso 4-5",
+  "tipoControl": [
+   {
+    "clave": "Escaleras piso 4-5",
+    "valor": [
+     "Desinfección",
+     "Higienización"
+    ]
+   }
+  ],
+  "fecha": "5/1/2023, 9:17:13 a. m."
  }
 ]
