@@ -44,8 +44,8 @@
   }
   .form {
     position: absolute;
-    top: 15%;
-    left: 33%;
+    top: 10%;
+    left: 36%;
     transform: translate(-50%, -50%);
     max-width: 50%;
     text-align: center;

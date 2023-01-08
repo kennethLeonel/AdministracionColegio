@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/Graphs.css">
     <link rel="stylesheet" href="/css/buttons.css">
+   <link rel ="stylesheet" href="/css/SelectBoxes.css"
     
 </head>
 <body>
@@ -16,12 +17,16 @@
 <div class="navegacion">
   <%- include('partials/navegacion') %>
     </div>
+    
     <div class="login">
+      <h1> Estadísticas</h1>
       <div class ="login-form">
-    <h1> Estadísticas</h1>
+    
+    <h2> Selecciona la zona que quieres visualizar</h2>
   
+    
     <div id="optionsContainer">
-      <select name="zona" id="zona">
+      <select class="custom-select" name="zona" id="zona">
         <option value="nulo"> Seleciona una Zona </option>
         <option value="Recepción">Recepción</option>
         <option value="Preescolar">Preescolar </option>
@@ -29,8 +34,11 @@
         <option value="Básicas"> Básicas</option>
       </select>
     </div> 
+   
     <h2 id="subtitulo"></h2>
     <% if (locals.datos) { %>
+      <div class="login">
+
         <div id="chartContainer">
           
             <canvas id="barra"> </canvas>
@@ -43,8 +51,10 @@
            
            <% } %>
           </div>
+          </div>
         </div>
         </div>
+      </div>
     <% }else{ %>
         <h2> No hay datos </h1>
         <% } %>
@@ -127,7 +137,9 @@
           }else if (resultado == "Preescolar") {
             div2.innerHTML = ""; 
             subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar";
+           
             var array = ["Selecciona una opción","Prejardin", "Jardín", "Transición", "Salón de aislamiento y desinfección"];
+            
             crearElementosOption(array, resultado, div, div2);
             let select = document.getElementById(resultado);
             select.addEventListener('change', (event) => {
