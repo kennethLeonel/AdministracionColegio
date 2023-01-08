@@ -23,7 +23,7 @@
             <% if (locals.empleadoLogin.sede) { %>
                 <h2 style="text-align :center"> tu sede es <%= locals.empleadoLogin.sede%>
                 </h2>
-
+              
                 <form action="/formularioEmpleado" method="POST" id="formulario">
 
 
@@ -33,7 +33,7 @@
                         </div>
                         <h3> Por favor seleccione la Zona en la que realizó la labor</h3>
                         <div class="espacio">
-                            <label for="zona">Zona </label>
+                            <label for="zona"> </label>
                             <select name="zona" id="zona">
                                 <option value="nulo"> Seleciona una Zona </option>
                                 <option value="Recepción">Recepción</option>
@@ -42,6 +42,7 @@
                                 <option value="Básicas"> Básicas</option>
                             </select>
                         </div>
+                        
                         <div id="select1"> </div>
                         <script>
                             // Este es el llamado a Swal
@@ -232,7 +233,9 @@
                                     divLimpieza = document.createElement("div");
                                     divLimpieza.id = e.target.value + "contenedor";
                                     parrafo = document.createElement("p");
-                                    parrafo.innerHTML = "llenar tipo control de la parte " + e.target.value;
+                                    
+                                    parrafo.innerHTML = "<br><br>¿Qué controles se hicieron en la zona" +"<b> " +e.target.value + "</b>"+"? <br><br><br>";
+                                   
                                     div.appendChild(divLimpieza);
                                     divLimpieza.appendChild(parrafo);
                                     crearElementos(arreglo, e.target.value, divLimpieza);

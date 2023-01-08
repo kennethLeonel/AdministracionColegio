@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Gráficos</title>
+    <script src="https://kit.fontawesome.com/c9d22b43b9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/Graphs.css">
+    <link rel="stylesheet" href="/css/buttons.css">
+    
 </head>
 <body>
-    <h1> Chart</h1>
+
+<div class="navegacion">
+  <%- include('partials/navegacion') %>
+    </div>
+    <div class="login">
+      <div class ="login-form">
+    <h1> Estadísticas</h1>
+  
     <div id="optionsContainer">
       <select name="zona" id="zona">
         <option value="nulo"> Seleciona una Zona </option>
@@ -20,7 +32,9 @@
     <h2 id="subtitulo"></h2>
     <% if (locals.datos) { %>
         <div id="chartContainer">
+          
             <canvas id="barra"> </canvas>
+          </div>
            <% var datosCanvas = [] %>
            <% for( let index = 0; index < datos.length; index++ ) { %>
                 <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl } %>
@@ -28,6 +42,8 @@
                 
            
            <% } %>
+          </div>
+        </div>
         </div>
     <% }else{ %>
         <h2> No hay datos </h1>
@@ -72,6 +88,7 @@
               if (grafico) {
               grafico.destroy();
             }
+            
             div2.innerHTML = ""; 
             var array = ["Selecciona una opción","Espacio Recepción", "Rectoria", "Dirección Administrativa", "Zona común"];
             crearElementosOption(array, resultado, div, div2);
@@ -83,7 +100,7 @@
                 if (grafico) {
               grafico.destroy();
             }
-                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Espacio Recepción";
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" +" " + "Espacio Recepción";
                 realizarArregloTipoControl(resultado2);
               }else if (resultado2 == "Rectoria") {
 
@@ -461,5 +478,6 @@
           }
        
     </script>
+    
 </body>
 </html>
