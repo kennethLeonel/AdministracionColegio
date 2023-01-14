@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/Graphs.css">
     <link rel="stylesheet" href="/css/buttons.css">
    <link rel ="stylesheet" href="/css/SelectBoxes.css"
-    
 </head>
 <body>
 
@@ -42,6 +41,42 @@
         <div id="chartContainer">
           
             <canvas id="barra"> </canvas>
+          </div>
+          <div id="tabladinamica">
+            <table class="fl-table">
+              <thead>
+              <tr>
+                  <th>Empleado</th>
+                  <th>Sede</th>
+                  <th>Zona</th>
+                  <th>Subzona</th>
+                  <th>Tipo control</th>
+                  <th>Fecha</th>
+              </tr>
+              </thead>
+              <% let datosM  =  datos.slice(datos.length-5)%> 
+              <% datosM.forEach(function(dato){ %>
+                <%var tipoAMostrar  = " ";%> 
+               
+
+                <%  dato.tipoControl.forEach (elem =>{
+                  tipoAMostrar += elem.clave + " con " + elem.valor + "\n\r"  ;
+                  }) %> 
+              <tbody>
+        
+              <tr>
+                  <td> <%= dato.nombre%> </td>
+                  <td><%= dato.sede%> </td>
+                  <td><%= dato.zona%> </td>
+                  <td> <%= dato.subZonas%> </td>
+                  <td><%= tipoAMostrar%> </td>
+                  <td> <%= dato.fecha%> </td>
+
+              </tr>
+            
+              <tbody>
+              <% }) %>
+          </table>
           </div>
            <% var datosCanvas = [] %>
            <% for( let index = 0; index < datos.length; index++ ) { %>
