@@ -277,5 +277,24 @@
    }
   ],
   "fecha": "5/1/2023, 9:17:13 a. m."
+ },
+ {
+  "id": 16,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Preescolar",
+  "subZonas": "Transición",
+  "tipoControl": [
+   {
+    "clave": "Transición",
+    "valor": [
+     "Limpieza",
+     "Desinfección",
+     "Higienización"
+    ]
+   }
+  ],
+  "fecha": "8/1/2023, 2:29:10 p. m."
  }
 ]
