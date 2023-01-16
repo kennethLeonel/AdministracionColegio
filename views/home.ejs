@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gráficos</title>
     <script src="https://kit.fontawesome.com/c9d22b43b9.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/Graphs.css">
+
+    
     <link rel="stylesheet" href="/css/buttons.css">
-   <link rel ="stylesheet" href="/css/SelectBoxes.css"
+   <link rel ="stylesheet" href="/css/SelectBoxes.css">
+   <link rel="stylesheet" href="/css/home.css">
+   <link rel="stylesheet" href="/css/Graphs.css">
+   
 </head>
 <body>
 
@@ -18,7 +21,10 @@
     </div>
     
     <div class="login">
-      <h1> Estadísticas</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h3 class="animate-charcter"> Estadísticas</h3>
       <div class ="login-form">
     
     <h2> Selecciona la zona que quieres visualizar</h2>
@@ -37,10 +43,19 @@
     <h2 id="subtitulo"></h2>
     <% if (locals.datos) { %>
       <div class="login">
+        <canvas id="barra"> </canvas>
 
-        <div id="chartContainer">
+          </div>
           
-            <canvas id="barra"> </canvas>
+           <% var datosCanvas = [] %>
+           <% for( let index = 0; index < datos.length; index++ ) { %>
+                <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl } %>
+                <% datosCanvas.push(obj) %>
+                
+           
+           <% } %>
+          </div>
+          
           </div>
           <div id="tabladinamica">
             <table class="fl-table">
@@ -77,16 +92,7 @@
               <tbody>
               <% }) %>
           </table>
-          </div>
-           <% var datosCanvas = [] %>
-           <% for( let index = 0; index < datos.length; index++ ) { %>
-                <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl } %>
-                <% datosCanvas.push(obj) %>
-                
-           
-           <% } %>
-          </div>
-          </div>
+          
         </div>
         </div>
       </div>

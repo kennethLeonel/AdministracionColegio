@@ -11,20 +11,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/formularioEmpleado.css">
     <script src="https://kit.fontawesome.com/c9d22b43b9.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/formularioEmpleado.css">
+    
     <link rel="stylesheet" href="/css/SelectBoxForm.css">
+   
+
 
 </head>
 
 <body>
 
+
+ 
     <%- include('partials/navegacion') %>
         <% if (locals.empleadoLogin) { %>
 
             <% if (locals.empleadoLogin.sede) { %>
-                <h2 style="text-align :center"> tu sede es <%= locals.empleadoLogin.sede%>
-                </h2>
-              
+
+
+                <div class="login">
+                    
+                    
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h3 class="animate-charcter"> tu sede es <%= locals.empleadoLogin.sede%>
+                                </h3>
+                            </div>
+                        
+                    </div>
+                </div>
+
                 <form action="/formularioEmpleado" method="POST" id="formulario">
 
 
@@ -32,10 +47,10 @@
                         <div class="espacio2">
                             <h2> Formulario de labores </h2>
                         </div>
-                        <h3> Por favor seleccione la zona en la que realizó la labor</h3>
+                        <h3> Por favor selecciona la zona en la que realizaste la labor</h3>
                         <div class="espacio">
                             <label for="zona"> </label>
-                            <select class ="custom-select", name="zona" id="zona">
+                            <select class="custom-select" , name="zona" id="zona">
                                 <option value="nulo"> Seleciona una Zona </option>
                                 <option value="Recepción">Recepción</option>
                                 <option value="Preescolar">Preescolar </option>
@@ -43,7 +58,7 @@
                                 <option value="Básicas"> Básicas</option>
                             </select>
                         </div>
-                        
+
                         <div id="select1"> </div>
                         <script>
                             // Este es el llamado a Swal
@@ -234,9 +249,9 @@
                                     divLimpieza = document.createElement("div");
                                     divLimpieza.id = e.target.value + "contenedor";
                                     parrafo = document.createElement("p");
-                                    
-                                    parrafo.innerHTML = "<br><br>¿Qué controles se hicieron en la zona" +"<b> " +e.target.value + "</b>"+"? <br><br><br>";
-                                   
+
+                                    parrafo.innerHTML = "<br><br>¿Qué controles se hicieron en la zona" + "<b> " + e.target.value + "</b>" + "? <br><br><br>";
+
                                     div.appendChild(divLimpieza);
                                     divLimpieza.appendChild(parrafo);
                                     crearElementos(arreglo, e.target.value, divLimpieza);
@@ -264,7 +279,7 @@
                         <button type="submit">Enviar</button>
                     </div>
                 </form>
-               
+
 
 
 
