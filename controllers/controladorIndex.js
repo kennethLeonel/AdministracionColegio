@@ -65,7 +65,49 @@ const controller = {
        
         
 
-
+        let mes = new Date().toLocaleString("es-CO", {timeZone: "America/Bogota"}).slice(3,4);
+        let mesNombre;
+        switch (mes) {
+            case "1":
+                mesNombre = "Enero";
+                break;
+            case "2":
+                mesNombre = "Febrero";
+                break;
+            case "3":
+                mesNombre = "Marzo";
+                break;
+            case "4":
+                mesNombre = "Abril";
+                break;
+            case "5":
+                mesNombre = "Mayo";
+                break;
+            case "6":
+                mesNombre = "Junio";
+                break;
+            case "7":
+                mesNombre = "Julio";
+                break;
+            case "8":
+                mesNombre = "Agosto";
+                break;
+            case "9":
+                mesNombre = "Septiembre";
+                break;
+            case "10":
+                mesNombre = "Octubre";
+                break;
+            case "11":
+                mesNombre = "Noviembre";
+                break;
+            case "12":
+                mesNombre = "Diciembre";
+                break;
+            default:
+                mesNombre = "No se encontro el mes";
+                break;
+        }
 
         const dato = {
             id: datos.length > 0 ? datos[datos.length - 1].id + 1 : 1,
@@ -77,6 +119,8 @@ const controller = {
             tipoControl: arreglofinal.slice(2,20),
             // FECHA UTC DE COLOMBIA
             fecha : new Date().toLocaleString("es-CO", {timeZone: "America/Bogota"}),
+            mes : mesNombre, 
+            ano : new Date().toLocaleString("es-CO", {timeZone: "America/Bogota"}).slice(5,10),
                
         }
         console.log(dato, "esto es lo que guardoi");
@@ -98,7 +142,14 @@ const controller = {
         const datos = archivosDatosFormularios.leerArchivo();
 
         res.render('./home', {datos: datos } );
-    }
+    },
+    vistaMensual: (req, res) => {  
+        const datos = archivosDatosFormularios.leerArchivo();
+
+        res.render('./informacionMensual', {datos: datos } );
+    },
+
+
     }
 
 
