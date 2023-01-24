@@ -30,15 +30,24 @@
     <h2> Selecciona la zona que quieres visualizar</h2>
   
     
-    <div id="optionsContainer">
-      <select class="custom-select" name="zona" id="zona">
-        <option value="nulo"> Seleciona una Zona </option>
-        <option value="Recepción">Recepción</option>
-        <option value="Preescolar">Preescolar </option>
-        <option value="ZonasComunesPre">Zona comúnes Preescolar</option>
-        <option value="Básicas"> Básicas</option>
+ 
+    <div id="optionsMes">
+      <select  name="mes" id="mes">
+        <option value="nulo"> Seleciona un mes </option>
+        <option value="Enero">Enero</option>
+        <option value="Febrero">Febrero </option>
+        <option value="Marzo">Marzo</option>
+        <option value="Abril"> Abril</option>
+        <option value="Mayo"> Mayo</option>
+        <option value="Junio"> Junio</option>
+        <option value="Julio"> Julio</option>
+        <option value="Agosto"> Agosto</option>
+        <option value="Septiembre"> Septiembre</option>
+        <option value="Octubre"> Octubre</option>
+        <option value="Noviembre"> Noviembre</option>
+        <option value="Diciembre"> Diciembre</option>
       </select>
-    </div> 
+    </div>
    
     <h2 id="subtitulo"></h2>
     <% if (locals.datos) { %>
@@ -49,7 +58,7 @@
           
            <% var datosCanvas = [] %>
            <% for( let index = 0; index < datos.length; index++ ) { %>
-                <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl } %>
+                <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl, mes: datos[index].mes, ano: datos[index].ano} %>
                 <% datosCanvas.push(obj) %>
                 
            
@@ -74,17 +83,86 @@
         let grafico;
        
         let datosEmpleados = <%- JSON.stringify(datosCanvas) %>;
+        let datosMes;
+        
+       
 
+        let datosZona = ["Seleciona una Zona", "Recepción", "Preescolar", "ZonasComunesPre", "Básicas"];
+        //Primero vamos a hacer una condición de acuerdo al mes que se seleccione 
+        let mes = document.getElementById("mes");
+        let valorMes;
+        let divPrincipal = document.getElementById("optionsMes");
+        let div = document.createElement("div");
+        div.id = "optionsContainer";
+        divPrincipal.appendChild(div);
+      
+        mes.addEventListener('change', (event)=>{
+          valorMes = event.target.value;
+          if (valorMes == "nulo") {
+            
+            if (grafico) {
+              grafico.destroy();
+            }
+           }
+           else if (valorMes == "Enero"){
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Enero");
+            console.log(datosMes)
+
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+
+            
+
+            
+
+
+           }
+
+      })
+
+
+
+
+   
+
+
+        function crearCanva ( arregloControlesNombre , arregloControlesContador) {
+          const ctx = document.getElementById('barra');
+          if (grafico) {
+            grafico.destroy();
+          }
+          grafico = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: arregloControlesNombre  ,
+            datasets: [{
+              label: 'Cantidad Tipo de control',
+              data: arregloControlesContador, 
+              borderWidth: 2,
+            }]
+          },  
+          options: {  
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+            });
+        }
+
+        function recorrerZonas (datosMes,zona){
+          
         let arregloControlesContador= [0,0,0,0];
         let arregloControlesNombre = ['Limpieza', 'Desinfección', 'Higienización', 'Dotación'];
-
 
         // console.log(getArray[0])
         // var nombresEmpleados =  document.getElementById('mydiv').dataset.test
         // tomar select de la zona
-        let zona = document.getElementById("zona");
+
         let resultado;
-        let div = document.getElementById("optionsContainer");
+        // let div = document.getElementById("optionsContainer");
         let subtitulo = document.getElementById("subtitulo");
         let div2 = document.createElement("div");
             div.appendChild(div2);
@@ -92,7 +170,8 @@
         let div3 = document.createElement("div");
             div2.appendChild(div3);
             div3.id = "divZonasBasicas";
-        zona.addEventListener('change', (event) => {
+
+          zona.addEventListener('change', (event) => {
           resultado = event.target.value;
           console.log(resultado, "este es el resultado")
           if (resultado == "nulo") {
@@ -410,33 +489,9 @@
           } 
 
           
-          })  
-
-
-        function crearCanva ( arregloControlesNombre , arregloControlesContador) {
-          const ctx = document.getElementById('barra');
-          if (grafico) {
-            grafico.destroy();
-          }
-          grafico = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: arregloControlesNombre  ,
-            datasets: [{
-              label: 'Cantidad Tipo de control',
-              data: arregloControlesContador, 
-              borderWidth: 2,
-            }]
-          },  
-          options: {  
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-            });
+          })
         }
+
         function crearElementosOption(array, zona, div, divBasicas) {
           let select = document.createElement("select");
           select.id = zona;
@@ -456,6 +511,7 @@
           function realizarArregloTipoControl (resultado2){
             let arregloControlesContador= [0,0,0,0];
                 datosEmpleados.forEach(element => {
+                  
                   if (element.zona == resultado ){
                     console.log(element, "este es el objeto")
                     element.control.forEach(tipo => {
