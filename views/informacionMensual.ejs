@@ -105,18 +105,20 @@
             }
            }
            else if (valorMes == "Enero"){
+            div.innerHTML = "";
             datosMes = datosEmpleados.filter((dato) => dato.mes == "Enero");
             console.log(datosMes)
-
             crearElementosOption(datosZona, "zona" ,divPrincipal, div);
             let zona = document.getElementById("zona");
             recorrerZonas(datosMes, zona);
-
-            
-
-            
-
-
+           }
+           else if (valorMes == "Febrero"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Febrero");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
            }
 
       })
@@ -165,11 +167,12 @@
         // let div = document.getElementById("optionsContainer");
         let subtitulo = document.getElementById("subtitulo");
         let div2 = document.createElement("div");
-            div.appendChild(div2);
-            div2.id = "divBasicas";
+            div2.id = "div2";
         let div3 = document.createElement("div");
-            div2.appendChild(div3);
-            div3.id = "divZonasBasicas";
+            div3.id = "div3";
+      
+     
+           
 
           zona.addEventListener('change', (event) => {
           resultado = event.target.value;
@@ -181,23 +184,20 @@
             }
           }else  if (resultado == "Recepción") {
               subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción";
-              if (grafico) {
-              grafico.destroy();
-            }
-            
+              console.log("entre a seleccionar recepcion")
             div2.innerHTML = ""; 
             var array = ["Selecciona una opción","Espacio Recepción", "Rectoria", "Dirección Administrativa", "Zona común"];
             crearElementosOption(array, resultado, div, div2);
-            let select = document.getElementById(resultado);
+            let select = document.querySelector('select[name="Recepción"]')
+            console.log(select, "este es el select de recepcion")
             select.addEventListener('change', (event) => {
               let resultado2 = event.target.value;
-              console.log(resultado2, "este es el resultado2")
+              console.log(resultado2, "hey ")
               if (resultado2 == "Espacio Recepción") {
-                if (grafico) {
-              grafico.destroy();
-            }
+                
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" +" " + "Espacio Recepción";
-                realizarArregloTipoControl(resultado2);
+                console.log("hola")
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
               }else if (resultado2 == "Rectoria") {
 
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Rectoria";
@@ -271,6 +271,7 @@
 
           }else if (resultado == "Básicas") {
             div2.innerHTML = "";  
+        
             subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas";
             var array = ["Selecciona una opción", "Patio", "Baños y escaleras", "Salones piso 2-3 primaria", "Zona adminitrativa piso 2", "Salones piso 3-4 Bachillerato", "Laboratorios", "Cocina y escalera"];
             crearElementosOption(array, resultado, div, div2);
@@ -282,6 +283,7 @@
                 subtitulo.innerHTML = "No hay datos";
               }else if (resultado2 == "Patio") {
                 div3.innerHTML = "";
+             
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Patio";
                 var arregloZonaBasicasEscogida = ["Selecciona una opción","Patio Básicas", "Cooperativa", "Salón de aislamiento y desinfección", "SHUT"];
                 crearElementosOption(arregloZonaBasicasEscogida, resultado2, div2, div3);
@@ -495,6 +497,7 @@
         function crearElementosOption(array, zona, div, divBasicas) {
           let select = document.createElement("select");
           select.id = zona;
+          select.name = zona;
           for (var i = 0; i < array.length; i++) {
               var option = document.createElement("option");
 
@@ -508,7 +511,8 @@
           div.appendChild(divBasicas);
           };
 
-          function realizarArregloTipoControl (resultado2){
+          function realizarArregloTipoControl (resultado2, datosEmpleados, resultado, arregloControlesNombre){
+            console.log("Aqui estoy")
             let arregloControlesContador= [0,0,0,0];
                 datosEmpleados.forEach(element => {
                   
