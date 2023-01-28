@@ -15,5 +15,25 @@
   "fecha": "23/1/2023, 9:04:31 p. m.",
   "mes": "Enero",
   "ano": "2023,"
+ },
+ {
+  "id": 2,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Recepción",
+  "subZonas": "Espacio Recepción",
+  "tipoControl": [
+   {
+    "clave": "Espacio Recepción",
+    "valor": [
+     "Higienización",
+     "Dotación"
+    ]
+   }
+  ],
+  "fecha": "27/1/2023, 10:34:51 p. m.",
+  "mes": "Enero",
+  "ano": "2023,"
  }
 ]

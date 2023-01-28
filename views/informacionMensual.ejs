@@ -154,6 +154,68 @@
             });
         }
 
+        function crearTabla (datosMes , divT){
+          // crear tabla
+          console.log("Estoy en crear tabla")
+          let divTabla =document.createElement("div") ;
+
+          let tabla = document.createElement("table");
+          tabla.id = "tabla";
+          let thead = document.createElement("thead");
+          let tr = document.createElement("tr");
+          let th1 = document.createElement("th");
+          th1.innerHTML = "Sede";
+
+          let th2 = document.createElement("th");
+          th2.innerHTML = "Zona";
+          let th3 = document.createElement("th");
+          th3.innerHTML = "Subzona";
+          let th4 = document.createElement("th");
+          th4.innerHTML = "Tipo control";
+          let th5 = document.createElement("th");
+          th5.innerHTML = "Fecha";
+          let th6 = document.createElement("th");
+          th6.innerHTML = "Empleado";
+          tr.appendChild(th1);
+          tr.appendChild(th2);
+          tr.appendChild(th3);
+          tr.appendChild(th4);
+          tr.appendChild(th5);
+          tr.appendChild(th6);
+          thead.appendChild(tr);
+          tabla.appendChild(thead);
+          let tbody = document.createElement("tbody");
+          for (let index = 0; index < datosMes.length; index++) {
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            td1.innerHTML = datosMes[index].sede;
+            let td2 = document.createElement("td");
+            td2.innerHTML = datosMes[index].zona;
+            let td3 = document.createElement("td");
+            td3.innerHTML = datosMes[index].subzona;
+            let td4 = document.createElement("td");
+            td4.innerHTML = datosMes[index].control;
+            let td5 = document.createElement("td");
+            td5.innerHTML = datosMes[index].fecha;
+            let td6 = document.createElement("td");
+            td6.innerHTML = datosMes[index].nombre;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            tr.appendChild(td6);
+            tbody.appendChild(tr);
+          }
+          tabla.appendChild(tbody);
+          divTabla.appendChild(tabla);
+          divT.appendChild(divTabla);
+          
+
+
+
+        }
+
         function recorrerZonas (datosMes,zona){
           
         let arregloControlesContador= [0,0,0,0];
@@ -198,10 +260,11 @@
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" +" " + "Espacio Recepción";
                 console.log("hola")
                 realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
+                crearTabla(datosMes, div2);
               }else if (resultado2 == "Rectoria") {
 
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Rectoria";
-                realizarArregloTipoControl(resultado2);
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
 
 
 
@@ -209,13 +272,13 @@
               }else if (resultado2 == "Dirección Administrativa") {
                 
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Dirección Administrativa";
-                realizarArregloTipoControl(resultado2);
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
 
 
               }else if (resultado2 == "Zona común") {
               
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Zona común";
-                realizarArregloTipoControl(resultado2);
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
 
               }
             }) 
@@ -554,6 +617,7 @@
 
               });
               crearCanva (arregloControlesNombre, arregloControlesContador);
+              
           }
        
     </script>
