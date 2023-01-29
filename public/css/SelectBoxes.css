@@ -9,7 +9,12 @@
     transition: border-color .1s ease-in-out,box-shadow .1s ease-in-out;
     border: 1px solid #ddd;
     border-radius: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
+
+
 .custom-select:hover {
     border: 1px solid #999;
 }
@@ -44,3 +49,12 @@ a:hover {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1.6rem;
 }
+
+@media only screen and (max-width: 600px) {
+    .custom-select {
+    
+      height: 40px;
+      font-size: 1.4rem;
+
+    }
+  }

@@ -15,5 +15,22 @@
   "fecha": "23/1/2023, 9:04:31 p. m.",
   "mes": "Enero",
   "ano": "2023,"
+ },
+ {
+  "id": 2,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Recepción",
+  "subZonas": "Espacio Recepción",
+  "tipoControl": [
+   {
+    "clave": "Espacio Recepción",
+    "valor": "Desinfección"
+   }
+  ],
+  "fecha": "29/1/2023, 12:24:45 p. m.",
+  "mes": "Enero",
+  "ano": "2023,"
  }
 ]

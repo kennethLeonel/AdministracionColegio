@@ -42,6 +42,12 @@ nav {
     height: 100vh;
     background: var(--secondary-color);
 }
+@media only screen and (max-width: 600px) {
+  nav {
+    width:  33%;
+  height: 100%;
+  }
+}
 .form {
   position: absolute;
   top: 10%;
@@ -62,6 +68,14 @@ nav {
   text-align: center;
   transform: translateY(0px);
 
+}
+/* Haz un media query para form*/ 
+@media only screen and (max-width: 600px) {
+  .form {
+    top: 22%;
+    left: 38%;
+    width: 60%;
+  }
 }
 
 .form input {
@@ -168,6 +182,15 @@ text-fill-color: transparent;
 animation: textclip 2s linear infinite;
 display: inline-block;
     font-size: 70px;
+}
+
+/*Haz un media query para animate-charcter */
+@media only screen and (max-width: 600px) {
+  .animate-charcter {
+    font-size: 40px;
+    margin-left: 40%;
+    margin-top: 6%;
+  }
 }
 
 @keyframes textclip {
