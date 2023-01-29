@@ -27,15 +27,24 @@
     <h2> Selecciona la zona que quieres visualizar</h2>
   
     
-    <div id="optionsContainer">
-      <select class="custom-select" name="zona" id="zona">
-        <option value="nulo"> Seleciona una Zona </option>
-        <option value="Recepción">Recepción</option>
-        <option value="Preescolar">Preescolar </option>
-        <option value="ZonasComunesPre">Zona comúnes Preescolar</option>
-        <option value="Básicas"> Básicas</option>
+ 
+    <div id="optionsMes">
+      <select  name="mes" id="mes">
+        <option value="nulo"> Seleciona un mes </option>
+        <option value="Enero">Enero</option>
+        <option value="Febrero">Febrero </option>
+        <option value="Marzo">Marzo</option>
+        <option value="Abril"> Abril</option>
+        <option value="Mayo"> Mayo</option>
+        <option value="Junio"> Junio</option>
+        <option value="Julio"> Julio</option>
+        <option value="Agosto"> Agosto</option>
+        <option value="Septiembre"> Septiembre</option>
+        <option value="Octubre"> Octubre</option>
+        <option value="Noviembre"> Noviembre</option>
+        <option value="Diciembre"> Diciembre</option>
       </select>
-    </div> 
+    </div>
    
     <h2 id="subtitulo"></h2>
     <% if (locals.datos) { %>
@@ -46,7 +55,7 @@
           
            <% var datosCanvas = [] %>
            <% for( let index = 0; index < datos.length; index++ ) { %>
-                <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl } %>
+                <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl, mes: datos[index].mes, ano: datos[index].ano} %>
                 <% datosCanvas.push(obj) %>
                 
            
@@ -54,7 +63,9 @@
           </div>
           
           </div>
-         
+          
+          
+        </div>
         </div>
       </div>
     <% }else{ %>
@@ -69,25 +80,160 @@
         let grafico;
        
         let datosEmpleados = <%- JSON.stringify(datosCanvas) %>;
+        let datosMes;
+        
+       
 
+        let datosZona = ["Seleciona una Zona", "Recepción", "Preescolar", "ZonasComunesPre", "Básicas"];
+        //Primero vamos a hacer una condición de acuerdo al mes que se seleccione 
+        let mes = document.getElementById("mes");
+        let valorMes;
+        let divPrincipal = document.getElementById("optionsMes");
+        let div = document.createElement("div");
+        div.id = "optionsContainer";
+        divPrincipal.appendChild(div);
+      
+        mes.addEventListener('change', (event)=>{
+          valorMes = event.target.value;
+          if (valorMes == "nulo") {
+            
+            if (grafico) {
+              grafico.destroy();
+            }
+           }
+           else if (valorMes == "Enero"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Enero");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+           }
+           else if (valorMes == "Febrero"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Febrero");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+           }
+
+      })
+
+
+
+
+   
+
+
+        function crearCanva ( arregloControlesNombre , arregloControlesContador) {
+          const ctx = document.getElementById('barra');
+          if (grafico) {
+            grafico.destroy();
+          }
+          grafico = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: arregloControlesNombre  ,
+            datasets: [{
+              label: 'Cantidad Tipo de control',
+              data: arregloControlesContador, 
+              borderWidth: 2,
+            }]
+          },  
+          options: {  
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+            });
+        }
+
+        function crearTabla (datosMes , divT){
+          // crear tabla
+          console.log("Estoy en crear tabla")
+          let divTabla =document.createElement("div") ;
+
+          let tabla = document.createElement("table");
+          tabla.id = "tabla";
+          let thead = document.createElement("thead");
+          let tr = document.createElement("tr");
+          let th1 = document.createElement("th");
+          th1.innerHTML = "Sede";
+
+          let th2 = document.createElement("th");
+          th2.innerHTML = "Zona";
+          let th3 = document.createElement("th");
+          th3.innerHTML = "Subzona";
+          let th4 = document.createElement("th");
+          th4.innerHTML = "Tipo control";
+          let th5 = document.createElement("th");
+          th5.innerHTML = "Fecha";
+          let th6 = document.createElement("th");
+          th6.innerHTML = "Empleado";
+          tr.appendChild(th1);
+          tr.appendChild(th2);
+          tr.appendChild(th3);
+          tr.appendChild(th4);
+          tr.appendChild(th5);
+          tr.appendChild(th6);
+          thead.appendChild(tr);
+          tabla.appendChild(thead);
+          let tbody = document.createElement("tbody");
+          for (let index = 0; index < datosMes.length; index++) {
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            td1.innerHTML = datosMes[index].sede;
+            let td2 = document.createElement("td");
+            td2.innerHTML = datosMes[index].zona;
+            let td3 = document.createElement("td");
+            td3.innerHTML = datosMes[index].subzona;
+            let td4 = document.createElement("td");
+            td4.innerHTML = datosMes[index].control;
+            let td5 = document.createElement("td");
+            td5.innerHTML = datosMes[index].fecha;
+            let td6 = document.createElement("td");
+            td6.innerHTML = datosMes[index].nombre;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            tr.appendChild(td6);
+            tbody.appendChild(tr);
+          }
+          tabla.appendChild(tbody);
+          divTabla.appendChild(tabla);
+          divT.appendChild(divTabla);
+          
+
+
+
+        }
+
+        function recorrerZonas (datosMes,zona){
+          
         let arregloControlesContador= [0,0,0,0];
         let arregloControlesNombre = ['Limpieza', 'Desinfección', 'Higienización', 'Dotación'];
-
 
         // console.log(getArray[0])
         // var nombresEmpleados =  document.getElementById('mydiv').dataset.test
         // tomar select de la zona
-        let zona = document.getElementById("zona");
+
         let resultado;
-        let div = document.getElementById("optionsContainer");
+        // let div = document.getElementById("optionsContainer");
         let subtitulo = document.getElementById("subtitulo");
         let div2 = document.createElement("div");
-            div.appendChild(div2);
-            div2.id = "divBasicas";
+            div2.id = "div2";
         let div3 = document.createElement("div");
-            div2.appendChild(div3);
-            div3.id = "divZonasBasicas";
-        zona.addEventListener('change', (event) => {
+            div3.id = "div3";
+      
+     
+           
+
+          zona.addEventListener('change', (event) => {
           resultado = event.target.value;
           console.log(resultado, "este es el resultado")
           if (resultado == "nulo") {
@@ -97,27 +243,25 @@
             }
           }else  if (resultado == "Recepción") {
               subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción";
-              if (grafico) {
-              grafico.destroy();
-            }
-            
+              console.log("entre a seleccionar recepcion")
             div2.innerHTML = ""; 
             var array = ["Selecciona una opción","Espacio Recepción", "Rectoria", "Dirección Administrativa", "Zona común"];
             crearElementosOption(array, resultado, div, div2);
-            let select = document.getElementById(resultado);
+            let select = document.querySelector('select[name="Recepción"]')
+            console.log(select, "este es el select de recepcion")
             select.addEventListener('change', (event) => {
               let resultado2 = event.target.value;
-              console.log(resultado2, "este es el resultado2")
+              console.log(resultado2, "hey ")
               if (resultado2 == "Espacio Recepción") {
-                if (grafico) {
-              grafico.destroy();
-            }
+                
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" +" " + "Espacio Recepción";
-                realizarArregloTipoControl(resultado2);
+                console.log("hola")
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
+                crearTabla(datosMes, div2);
               }else if (resultado2 == "Rectoria") {
 
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Rectoria";
-                realizarArregloTipoControl(resultado2);
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
 
 
 
@@ -125,13 +269,13 @@
               }else if (resultado2 == "Dirección Administrativa") {
                 
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Dirección Administrativa";
-                realizarArregloTipoControl(resultado2);
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
 
 
               }else if (resultado2 == "Zona común") {
               
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Zona común";
-                realizarArregloTipoControl(resultado2);
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
 
               }
             }) 
@@ -187,6 +331,7 @@
 
           }else if (resultado == "Básicas") {
             div2.innerHTML = "";  
+        
             subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas";
             var array = ["Selecciona una opción", "Patio", "Baños y escaleras", "Salones piso 2-3 primaria", "Zona adminitrativa piso 2", "Salones piso 3-4 Bachillerato", "Laboratorios", "Cocina y escalera"];
             crearElementosOption(array, resultado, div, div2);
@@ -198,6 +343,7 @@
                 subtitulo.innerHTML = "No hay datos";
               }else if (resultado2 == "Patio") {
                 div3.innerHTML = "";
+             
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Patio";
                 var arregloZonaBasicasEscogida = ["Selecciona una opción","Patio Básicas", "Cooperativa", "Salón de aislamiento y desinfección", "SHUT"];
                 crearElementosOption(arregloZonaBasicasEscogida, resultado2, div2, div3);
@@ -405,36 +551,13 @@
           } 
 
           
-          })  
-
-
-        function crearCanva ( arregloControlesNombre , arregloControlesContador) {
-          const ctx = document.getElementById('barra');
-          if (grafico) {
-            grafico.destroy();
-          }
-          grafico = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: arregloControlesNombre  ,
-            datasets: [{
-              label: 'Cantidad Tipo de control',
-              data: arregloControlesContador, 
-              borderWidth: 2,
-            }]
-          },  
-          options: {  
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-            });
+          })
         }
+
         function crearElementosOption(array, zona, div, divBasicas) {
           let select = document.createElement("select");
           select.id = zona;
+          select.name = zona;
           for (var i = 0; i < array.length; i++) {
               var option = document.createElement("option");
 
@@ -448,9 +571,11 @@
           div.appendChild(divBasicas);
           };
 
-          function realizarArregloTipoControl (resultado2){
+          function realizarArregloTipoControl (resultado2, datosEmpleados, resultado, arregloControlesNombre){
+            console.log("Aqui estoy")
             let arregloControlesContador= [0,0,0,0];
                 datosEmpleados.forEach(element => {
+                  
                   if (element.zona == resultado ){
                     console.log(element, "este es el objeto")
                     element.control.forEach(tipo => {
@@ -489,6 +614,7 @@
 
               });
               crearCanva (arregloControlesNombre, arregloControlesContador);
+              
           }
        
     </script>
