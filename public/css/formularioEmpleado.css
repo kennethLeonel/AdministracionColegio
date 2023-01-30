@@ -42,12 +42,8 @@ nav {
     height: 100vh;
     background: var(--secondary-color);
 }
-@media only screen and (max-width: 600px) {
-  nav {
-    width:  33%;
-  height: 100%;
-  }
-}
+
+
 .form {
   position: absolute;
   top: 10%;
@@ -69,14 +65,8 @@ nav {
   transform: translateY(0px);
 
 }
-/* Haz un media query para form*/ 
-@media only screen and (max-width: 600px) {
-  .form {
-    top: 22%;
-    left: 38%;
-    width: 60%;
-  }
-}
+
+
 
 .form input {
   width: 90%;
@@ -176,7 +166,7 @@ background-clip: border-box;
 background-size: 200% auto;
 color: #fff;
 background-clip: text;
-text-fill-color: transparent;
+
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 animation: textclip 2s linear infinite;
@@ -190,6 +180,36 @@ display: inline-block;
     font-size: 40px;
     margin-left: 40%;
     margin-top: 6%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    width:  33%;
+  height: 100%;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+  nav {
+    width: 25%;
+  height: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    top: 22%;
+    left: 37%;
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 850px) {
+  .form {
+    top: 20%;
+    left: 32%;
+    width: 60%;
   }
 }
 

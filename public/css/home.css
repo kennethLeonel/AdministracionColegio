@@ -12,7 +12,7 @@ display:block;
 }
 
 .fl-table {
-  margin-left: 32%;
+  margin-left: 40%;
   text-align: center;
   margin-top: 100px;
   border-radius: 5px;
@@ -57,7 +57,32 @@ display:block;
   background: #F8F8F8;
 }
 
+/*Crea un mediaquery para fl-table con maximo 600px */
+@media (max-width: 600px) {
+  .fl-table {
+    font-size: 9px;
+    margin-left: 20%;
+  }
+}
 
+/*Crea un mediaquery para fl-table con minimo 600px y maximo 850px */
+@media (min-width: 600px) and (max-width: 850px) {
+  .fl-table {
+    font-size: 9px;
+    margin-left: 30%;
+  }
+}
 
+@media (min-width: 1px) and (max-width: 600px) {
+  .fl-table td {
+    font-size: 12px;
+    margin-left: 30%;
+  }
+}
 
-
+@media (min-width: 600px) and (max-width: 850px) {
+  .fl-table td {
+    font-size: 11px;
+    margin-left: 30%;
+  }
+}
