@@ -24,7 +24,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h3 class="animate-charcter"> Estadísticas</h3>
+          <h3 class="animate-charcter"> Estadísticas Mensuales</h3>
       <div class ="login-form">
     
     <h2> Selecciona la zona que quieres visualizar</h2>
@@ -50,12 +50,13 @@
     </div>
    
     <h2 id="subtitulo"></h2>
+   
     <% if (locals.datos) { %>
       <div class="login">
         <canvas id="barra"> </canvas>
-
+        
           </div>
-          
+         
            <% var datosCanvas = [] %>
            <% for( let index = 0; index < datos.length; index++ ) { %>
                 <% let obj = { nombre : datos[index].nombre, sede : datos[index].sede, zona: datos[index].zona, control: datos[index].tipoControl, mes: datos[index].mes, ano: datos[index].ano} %>
@@ -66,15 +67,16 @@
           </div>
           
           </div>
-          
+          <div id="divTablaH"></div>
           
         </div>
         </div>
       </div>
+      
     <% }else{ %>
         <h2> No hay datos </h1>
         <% } %>
-         
+        
         <div id="mydiv" data-test=<%= datosCanvas %>></div> 
         <!-- <p id="prueba"></p> -->
      
@@ -106,20 +108,106 @@
            }
            else if (valorMes == "Enero"){
             div.innerHTML = "";
+           
             datosMes = datosEmpleados.filter((dato) => dato.mes == "Enero");
-            console.log(datosMes)
+         
             crearElementosOption(datosZona, "zona" ,divPrincipal, div);
             let zona = document.getElementById("zona");
             recorrerZonas(datosMes, zona);
            }
            else if (valorMes == "Febrero"){
             div.innerHTML = "";
+           
             datosMes = datosEmpleados.filter((dato) => dato.mes == "Febrero");
             console.log(datosMes)
             crearElementosOption(datosZona, "zona" ,divPrincipal, div);
             let zona = document.getElementById("zona");
             recorrerZonas(datosMes, zona);
            }
+           else if (valorMes == "Marzo"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Marzo");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+
+           }
+           else if ( valorMes == "Abril"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Abril");
+           
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+           }
+           else if (valorMes == "Mayo"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Mayo");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+           }
+           else if (valorMes == "Junio"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Junio");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+           }
+           else if (valorMes == "Julio"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Julio");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+           }
+           else if (valorMes == "Agosto"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Agosto");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+           }
+           else if (valorMes == "Septiembre"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Septiembre");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+           }
+           else if (valorMes == "Octubre"){
+            div.innerHTML = "";
+            datosMes = datosEmpleados.filter((dato) => dato.mes == "Octubre");
+            console.log(datosMes)
+            crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+            let zona = document.getElementById("zona");
+            recorrerZonas(datosMes, zona);
+           }
+            else if (valorMes == "Noviembre"){
+              div.innerHTML = "";
+              datosMes = datosEmpleados.filter((dato) => dato.mes == "Noviembre");
+              console.log(datosMes)
+              crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+              let zona = document.getElementById("zona");
+              recorrerZonas(datosMes, zona);
+            }
+            else if (valorMes == "Diciembre"){
+              div.innerHTML = "";
+              datosMes = datosEmpleados.filter((dato) => dato.mes == "Diciembre");
+              console.log(datosMes)
+              crearElementosOption(datosZona, "zona" ,divPrincipal, div);
+              let zona = document.getElementById("zona");
+              recorrerZonas(datosMes, zona);
+            }
+
+
+
 
       })
 
@@ -154,13 +242,19 @@
             });
         }
 
-        function crearTabla (datosMes , divT){
+        function crearTabla (datosMes,divTabla , espacioreflejar){
           // crear tabla
-          console.log("Estoy en crear tabla")
-          let divTabla =document.createElement("div") ;
 
+          console.log("Estoy en crear tabla")
+          console.log(datosMes, "hey estos son los datos")
+
+          console.log(divTabla, "hey este es el div")
+          divTabla.innerHTML = "";
+          if (datosMes.length > 0){
+            
           let tabla = document.createElement("table");
           tabla.id = "tabla";
+          tabla.className = "fl-table";
           let thead = document.createElement("thead");
           let tr = document.createElement("tr");
           let th1 = document.createElement("th");
@@ -173,15 +267,14 @@
           let th4 = document.createElement("th");
           th4.innerHTML = "Tipo control";
           let th5 = document.createElement("th");
-          th5.innerHTML = "Fecha";
-          let th6 = document.createElement("th");
-          th6.innerHTML = "Empleado";
+     
+          th5.innerHTML = "Empleado";
           tr.appendChild(th1);
           tr.appendChild(th2);
           tr.appendChild(th3);
           tr.appendChild(th4);
           tr.appendChild(th5);
-          tr.appendChild(th6);
+      
           thead.appendChild(tr);
           tabla.appendChild(thead);
           let tbody = document.createElement("tbody");
@@ -192,27 +285,35 @@
             let td2 = document.createElement("td");
             td2.innerHTML = datosMes[index].zona;
             let td3 = document.createElement("td");
-            td3.innerHTML = datosMes[index].subzona;
+            let datoSubzona ;
+            let datosConrtrol;
+            datosMes[index].control.forEach(datoActuaL => {
+              if (datoActuaL.clave == espacioreflejar ){
+                 datoSubzona = datoActuaL.clave;
+                 datosConrtrol = datoActuaL.valor;
+              }
+            })
+            td3.innerHTML = datoSubzona;
             let td4 = document.createElement("td");
-            td4.innerHTML = datosMes[index].control;
+            td4.innerHTML =datosConrtrol;
             let td5 = document.createElement("td");
-            td5.innerHTML = datosMes[index].fecha;
-            let td6 = document.createElement("td");
-            td6.innerHTML = datosMes[index].nombre;
+           
+            td5.innerHTML = datosMes[index].nombre;
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
             tr.appendChild(td4);
             tr.appendChild(td5);
-            tr.appendChild(td6);
+           
             tbody.appendChild(tr);
           }
           tabla.appendChild(tbody);
           divTabla.appendChild(tabla);
-          divT.appendChild(divTabla);
+         
           
 
 
+          }
 
         }
 
@@ -232,13 +333,13 @@
             div2.id = "div2";
         let div3 = document.createElement("div");
             div3.id = "div3";
-      
+        let divTabla = document.getElementById("divTablaH");
      
            
 
           zona.addEventListener('change', (event) => {
           resultado = event.target.value;
-          console.log(resultado, "este es el resultado")
+          
           if (resultado == "nulo") {
             subtitulo.innerHTML = "No hay datos";
             if (grafico) {
@@ -246,40 +347,31 @@
             }
           }else  if (resultado == "Recepción") {
               subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción";
-              console.log("entre a seleccionar recepcion")
+              
             div2.innerHTML = ""; 
             var array = ["Selecciona una opción","Espacio Recepción", "Rectoria", "Dirección Administrativa", "Zona común"];
             crearElementosOption(array, resultado, div, div2);
             let select = document.querySelector('select[name="Recepción"]')
-            console.log(select, "este es el select de recepcion")
+            
             select.addEventListener('change', (event) => {
               let resultado2 = event.target.value;
-              console.log(resultado2, "hey ")
-              if (resultado2 == "Espacio Recepción") {
-                
-                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" +" " + "Espacio Recepción";
-                console.log("hola")
-                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
-                crearTabla(datosMes, div2);
-              }else if (resultado2 == "Rectoria") {
-
-                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Rectoria";
-                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
-
-
-
-
-              }else if (resultado2 == "Dirección Administrativa") {
-                
-                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Dirección Administrativa";
-                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
-
-
-              }else if (resultado2 == "Zona común") {
               
+              if (resultado2 == "Espacio Recepción") {              
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" +" " + "Espacio Recepción";
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
+              }else if (resultado2 == "Rectoria") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Rectoria";
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
+              }else if (resultado2 == "Dirección Administrativa") {
+                subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Dirección Administrativa";
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
+              }else if (resultado2 == "Zona común") {
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Recepción" + " " + "Zona común";
-                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre);
-
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
               }
             }) 
                                  
@@ -290,24 +382,29 @@
             var array = ["Selecciona una opción","Prejardin", "Jardín", "Transición", "Salón de aislamiento y desinfección"];
             
             crearElementosOption(array, resultado, div, div2);
-            let select = document.getElementById(resultado);
+            let select = document.querySelector('select[name="Preescolar"]')
+            console.log(select, "este es el select")
             select.addEventListener('change', (event) => {
               let resultado2 = event.target.value;
               console.log(resultado2, "este es el resultado2")
               if (resultado2 == "Prejardin") {
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Prejardin";
-                realizarArregloTipoControl(resultado2)
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
 
               }else if (resultado2 == "Jardín") {
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Jardín";
-                realizarArregloTipoControl(resultado2)
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
               
               }else if (resultado2 == "Transición") {
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Transición";
-                realizarArregloTipoControl(resultado2)
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
               }else if (resultado2 == "Salón de aislamiento y desinfección") {
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Salón de aislamiento y desinfección";
-                realizarArregloTipoControl(resultado2)
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
               }
             })
 
@@ -316,19 +413,22 @@
             subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar";
             var array = ["Selecciona una opción","Patio de juegos", "Escalera", "Baños"];
             crearElementosOption(array, resultado, div, div2);
-            let select = document.getElementById(resultado);
+            let select = document.querySelector('select[name="ZonasComunesPre"]')
             select.addEventListener('change', (event) => {
               let resultado2 = event.target.value;
               console.log(resultado2, "este es el resultado2")
               if (resultado2 == "Patio de juegos") {
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Patio de juegos";
-                realizarArregloTipoControl(resultado2)
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
               }else if (resultado2 == "Escalera") {
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Escalera";
-                realizarArregloTipoControl(resultado2)
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
               }else if (resultado2 == "Baños") {
                 subtitulo.innerHTML = "Estadísticas de la zona " + "Preescolar" + " " + "Baños";
-                realizarArregloTipoControl(resultado2)
+                divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado2, datosMes, resultado, arregloControlesNombre, divTabla);
               }
             })
 
@@ -574,17 +674,22 @@
           div.appendChild(divBasicas);
           };
 
-          function realizarArregloTipoControl (resultado2, datosEmpleados, resultado, arregloControlesNombre){
-            console.log("Aqui estoy")
+          function realizarArregloTipoControl (resultado2, datosEmpleados, resultado, arregloControlesNombre , divTabla){
+            console.log("Aqui estoy" , datosEmpleados)
             let arregloControlesContador= [0,0,0,0];
+            let arregloDatos = [];
+            
                 datosEmpleados.forEach(element => {
                   
                   if (element.zona == resultado ){
-                    console.log(element, "este es el objeto")
+                  
                     element.control.forEach(tipo => {
                     
                     if(tipo.clave == resultado2){
+                      console.log(element, "este es el elemento que quiero")
+                      arregloDatos.push(element)
                       if (!Array.isArray(tipo.valor)) {
+                          
                         if (tipo.valor == "Limpieza") {
                           arregloControlesContador[0] += 1;
                         }else if (tipo.valor == "Desinfección") {
@@ -610,13 +715,29 @@
                         });
                         console.log(arregloControlesContador, "este es el arreglo")
                       }
-                      
+                      console.log(arregloDatos, "este es el arreglo de datos que se envia")
+                      // arregloDatos.forEach(element => { 
+
+                      //   console.log(element, "este es el elemento actual")
+                      //   element.control.forEach(controlA => {
+                      //     console.log(controlA, "este es el control actual")
+                      //     if (controlA.clave != resultado2) {
+                      //       console.log(controlA, "este es el control que se va a eliminar")
+                      //       element.control.splice(element.control.indexOf(controlA), 1);
+                      //     }
+                      //   })
+
+                      // });
+                      // console.log(arregloDatos, "este es el arreglo de datos que se envia")
+                      crearTabla(arregloDatos,divTabla , resultado2)
                     }
                     })
+                    
                   }
 
               });
               crearCanva (arregloControlesNombre, arregloControlesContador);
+              
               
           }
        
