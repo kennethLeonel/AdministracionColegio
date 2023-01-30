@@ -221,7 +221,7 @@ max-width:400px;
 @media only screen and  (min-width: 1px) and (max-width: 600px) {
   .animate-charcter {
     font-size: 35px;
-    margin-left: 21%;
+    margin-left: 10%;
     
   }
 }
@@ -229,7 +229,7 @@ max-width:400px;
 @media only screen and (min-width: 601px) and (max-width: 800px) {
   .animate-charcter {
     font-size: 50px;
-    margin-left: 46%;
+    margin-left: 25%;
   }
 }
 
@@ -237,7 +237,7 @@ max-width:400px;
   .login-form {
     margin-top: 50px;
     margin-left: 140px;
-    width:35% ;
+    width:17% ;
    
   }
 }
@@ -245,7 +245,7 @@ max-width:400px;
 @media only screen and (min-width: 601px) and (max-width: 800px) {
   .login-form {
     margin-top: 50px;
-    margin-left: 40%;
+    margin-left: 22%;
   }
 }
 
