@@ -12,7 +12,7 @@ display:block;
 }
 
 .fl-table {
-  margin-left: 17%;
+  margin-left: 10%;
   text-align: center;
   margin-top: 100px;
   border-radius: 5px;
@@ -61,7 +61,7 @@ display:block;
 @media (max-width: 600px) {
   .fl-table {
     font-size: 9px;
-    margin-left: 10%;
+    margin-left: 6%;
   }
 }
 
@@ -69,7 +69,7 @@ display:block;
 @media (min-width: 601px) and (max-width: 850px) {
   .fl-table {
     font-size: 9px;
-    margin-left: 15%;
+    margin-left: 7%;
   }
 }
 

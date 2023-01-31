@@ -112,6 +112,7 @@ display:block;
 @media (max-width: 600px) {
     .fl-table {
         font-size: 12px;
+        margin-left: 2%;
 
     }
 }
