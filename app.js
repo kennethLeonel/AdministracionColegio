@@ -36,9 +36,9 @@ app.use ('/administrador', rutaAdmin);
 
 
 
-
-app.listen( 8081, ()=>{
-    console.log('se levanto en "http://localhost:8081"')
+const port = process.env.PORT || 8081;
+app.listen( port, ()=>{
+    console.log(`se levanto en http://localhost:${port}`)
 })
 
 
