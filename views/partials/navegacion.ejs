@@ -1,9 +1,25 @@
 
+<% if (locals.rol == "Administrador") { %> 
+
     <nav>
         <a href="/administrador"><i class="fa-solid fa-user-gear"> </i>Administrador</a>
         <!-- Estadística -->
-        <a href="home"> <i class="fa-solid fa-wave-square"></i> Estadísticas</a> 
+        <a href="/home"> <i class="fa-solid fa-wave-square"></i> Estadísticas Totales</a> 
+        <a href="/estadisticaMensual"> <i class="fa-solid fa-wave-square"></i> Estadística Mensual</a> 
         <a href="/formularioEmpleado"><i class="fa-solid fa-file-pen"></i> Formulario Empleado</a>
         <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
         
     </nav>
+
+<% } else if (locals.rol == "Empleado") {%>
+
+    <nav>
+        <a href="/formularioEmpleado"><i class="fa-solid fa-file-pen"></i> Formulario Empleado</a>
+        <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+    </nav>
+    <% }else if (locals.rol == "Salud") { %> 
+        <a href="/home"> <i class="fa-solid fa-wave-square"></i> Estadísticas Totales</a> 
+        <a href="/estadisticaMensual"> <i class="fa-solid fa-wave-square"></i> Estadística Mensual</a> 
+        <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+        <% } %> 
+ 

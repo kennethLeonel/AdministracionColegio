@@ -8,7 +8,7 @@ const controller = {
        const empleados = archivo.leerArchivo();
    
 
-        res.render('./admin/datosEmpleados', {empleados: empleados });
+        res.render('./admin/datosEmpleados', {empleados: empleados , rol:"Administrador"});
     },
     vistaCrear: (req, res) => {
 
@@ -37,7 +37,8 @@ const controller = {
             correo: req.body.correo,
             sede: req.body.sede,
             usuario: req.body.usuario,
-            contra: req.body.contra
+            contra: req.body.contra,
+            rol: req.body.rol
             
         }
         empleados.push(empleado);
@@ -58,6 +59,7 @@ const controller = {
         empleadoEditado.sede = req.body.sede;
         empleadoEditado.usuario = req.body.usuario;
         empleadoEditado.contra = req.body.contra;
+        empleadoEditado.rol = req.body.rol;
         archivo.escribirArchivo(empleados);
         console.log("Se edito el empleado");
         res.redirect('/administrador');

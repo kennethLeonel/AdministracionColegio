@@ -2,11 +2,12 @@
  {
   "id": 1,
   "nombre": "Kenneth11",
-  "edad": "21",
+  "edad": "22",
   "correo": "kennethleo1@hotmail.com",
   "sede": "Bosa",
   "usuario": "leonelken",
-  "contra": "Kenneth11"
+  "contra": "Kenneth11",
+  "rol": "Administrador"
  },
  {
   "id": 2,
@@ -15,6 +16,27 @@
   "correo": "steban123@gmail.com",
   "sede": "Chapiñero",
   "usuario": "Steban123",
-  "contra": "1234"
+  "contra": "1234",
+  "rol": "Empleado"
+ },
+ {
+  "id": 3,
+  "nombre": "Salud",
+  "edad": "30",
+  "correo": "Salud1@hotmail.com",
+  "sede": "Bosa",
+  "usuario": "Salud",
+  "contra": "salud1234",
+  "rol": "Salud"
+ },
+ {
+  "id": 4,
+  "nombre": "Kuchau",
+  "edad": "12",
+  "correo": "emma@hotmail.com",
+  "sede": "Cedritos",
+  "usuario": "123",
+  "contra": "Kuchau",
+  "rol": "Empleado"
  }
 ]

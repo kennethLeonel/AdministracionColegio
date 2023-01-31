@@ -60,6 +60,26 @@
                     </div>
 
                     <div class ="espacio">
+                        <label for="rol">Rol </label>
+                        <select name="rol" id="rol">
+            
+
+                        <%  var opciones = ["Administrador", "Empleado","Salud"] %>
+                        <% for(var i = 0; i < opciones.length; i++){ %>
+                            <% if(empleado.rol == opciones[i]){ %>
+                                <option value="<%=opciones[i] %>" selected> <%=opciones[i] %></option>
+                            <% }else{ %>
+                                <option value="<%=opciones[i] %>"> <%=opciones[i] %></option>
+                            <% } %>
+                        <% } %>
+
+                        </select>
+                        
+                    </div>
+
+
+
+                    <div class ="espacio">
                         <label for="usuario">Usuario</label>
                         <input type="text" name="usuario" id="usuario" value="<%= empleado.usuario%>">
                     </div>

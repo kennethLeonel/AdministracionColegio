@@ -24,7 +24,17 @@ const controller = {
         localStorage.setItem('usuario', empleado.usuario);
         localStorage.setItem('contra', empleado.contra);
 
-        res.render('./formularioEmpleado', {empleadoLogin: empleado } );
+        // condición rol depedniendo de ese rol hacemos condiciones y redireccionamos, toca pasar un atributo que es el rol y de ea forma controlamos la navegación
+        if (empleado.rol == "Administrador"){
+                const empleados = archivo.leerArchivo();
+                res.render('./Admin/datosEmpleados', {empleados: empleados , rol: empleado.rol});
+         }else if(empleado.rol == "Empleado"){
+            res.render('./formularioEmpleado', {empleadoLogin: empleado , rol: empleado.rol} );
+            }
+            else if (empleado.rol == "Salud"){
+                const datos = archivosDatosFormularios.leerArchivo();
+                res.render('./home',{datos: datos , rol: empleado.rol});
+            }
         }else{
             res.render('./index', {error: "Usuario o contraseña incorrectos"});
         }
@@ -40,7 +50,7 @@ const controller = {
          contra = localStorage.getItem('contra'); 
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
        
-        res.render('./formularioEmpleado', {empleadoLogin: empleado } );
+        res.render('./formularioEmpleado', {empleadoLogin: empleado,  rol :"Empleado" } );
 
        
     },
@@ -132,7 +142,7 @@ const controller = {
             datos.push(dato);
             archivosDatosFormularios.escribirArchivo(datos);
             console.log("Se creo datos form");
-            res.redirect('./administrador'); // Hacer una vista Home 
+            res.redirect('./formularioEmpleado'); // Hacer una vista Home 
         }
         
       
@@ -141,12 +151,12 @@ const controller = {
     vistaHome: (req, res) => {  
         const datos = archivosDatosFormularios.leerArchivo();
 
-        res.render('./home', {datos: datos } );
+        res.render('./home', {datos: datos ,rol :"Salud" } );
     },
     vistaMensual: (req, res) => {  
         const datos = archivosDatosFormularios.leerArchivo();
 
-        res.render('./informacionMensual', {datos: datos } );
+        res.render('./informacionMensual', {datos: datos,rol :"Salud" } );
     },
 
 
