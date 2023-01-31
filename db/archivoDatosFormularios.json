@@ -194,5 +194,183 @@
   "fecha": "30/1/2023, 8:17:10 p. m.",
   "mes": "Enero",
   "ano": "2023,"
+ },
+ {
+  "id": 9,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Básicas",
+  "subZonas": [
+   "Escaleras piso 1-2",
+   "Baños (piso 1.5)",
+   "Escaleras piso 2-3",
+   "Baños (piso 2.5)",
+   "Escaleras piso 3-4",
+   "Baños (piso 3.5)",
+   "Escaleras piso 4-5",
+   "Baños (piso 4.5)"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Escaleras piso 1-2",
+    "valor": "Limpieza"
+   },
+   {
+    "clave": "Baños (piso 1.5)",
+    "valor": "Desinfección"
+   },
+   {
+    "clave": "Escaleras piso 2-3",
+    "valor": "Higienización"
+   },
+   {
+    "clave": "Baños (piso 2.5)",
+    "valor": "Dotación"
+   },
+   {
+    "clave": "Escaleras piso 3-4",
+    "valor": "Limpieza"
+   },
+   {
+    "clave": "Baños (piso 3.5)",
+    "valor": "Desinfección"
+   },
+   {
+    "clave": "Escaleras piso 4-5",
+    "valor": "Higienización"
+   },
+   {
+    "clave": "Baños (piso 4.5)",
+    "valor": "Dotación"
+   }
+  ],
+  "fecha": "30/1/2023, 8:21:22 p. m.",
+  "mes": "Enero",
+  "ano": "2023,"
+ },
+ {
+  "id": 10,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Básicas",
+  "subZonas": [
+   "Oficina coordinador 1",
+   "Oficina coordinador 2",
+   "Enfermería",
+   "Zona común coordinación",
+   "Psicología",
+   "Sala de profesores"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Oficina coordinador 1",
+    "valor": [
+     "Limpieza",
+     "Higienización"
+    ]
+   },
+   {
+    "clave": "Oficina coordinador 2",
+    "valor": "Desinfección"
+   },
+   {
+    "clave": "Enfermería",
+    "valor": "Higienización"
+   },
+   {
+    "clave": "Zona común coordinación",
+    "valor": "Dotación"
+   },
+   {
+    "clave": "Psicología",
+    "valor": "Limpieza"
+   },
+   {
+    "clave": "Sala de profesores",
+    "valor": [
+     "Limpieza",
+     "Desinfección",
+     "Higienización",
+     "Dotación"
+    ]
+   }
+  ],
+  "fecha": "30/1/2023, 8:21:59 p. m.",
+  "mes": "Enero",
+  "ano": "2023,"
+ },
+ {
+  "id": 11,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Básicas",
+  "subZonas": [
+   "Sexto",
+   "Noveno"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Sexto",
+    "valor": "Desinfección"
+   },
+   {
+    "clave": "Noveno",
+    "valor": "Higienización"
+   }
+  ],
+  "fecha": "30/1/2023, 8:23:16 p. m.",
+  "mes": "Enero",
+  "ano": "2023,"
+ },
+ {
+  "id": 12,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Básicas",
+  "subZonas": [
+   "Sala de Informática",
+   "Comedor"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Sala de Informática",
+    "valor": "Dotación"
+   },
+   {
+    "clave": "Comedor",
+    "valor": "Desinfección"
+   }
+  ],
+  "fecha": "30/1/2023, 8:23:30 p. m.",
+  "mes": "Enero",
+  "ano": "2023,"
+ },
+ {
+  "id": 13,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Básicas",
+  "subZonas": [
+   "Escalera piso 5-6",
+   "Cocina"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Escalera piso 5-6",
+    "valor": "Dotación"
+   },
+   {
+    "clave": "Cocina",
+    "valor": "Desinfección"
+   }
+  ],
+  "fecha": "30/1/2023, 8:23:41 p. m.",
+  "mes": "Enero",
+  "ano": "2023,"
  }
 ]
