@@ -438,7 +438,8 @@
             subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas";
             var array = ["Selecciona una opción", "Patio", "Baños y escaleras", "Salones piso 2-3 primaria", "Zona adminitrativa piso 2", "Salones piso 3-4 Bachillerato", "Laboratorios", "Cocina y escalera"];
             crearElementosOption(array, resultado, div, div2);
-            let select = document.getElementById(resultado);
+            let select = document.querySelector('select[name="Básicas"]')
+            console.log(select, "este es el select")
             select.addEventListener('change', (event) => {
               let resultado2 = event.target.value;
               console.log(resultado2, "este es el resultado2")
@@ -461,16 +462,20 @@
                     subtitulo.innerHTML = "No hay datos";
                   }else if (resultado3 == "Patio Básicas") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Patio" + " " + "Patio Básicas";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Cooperativa") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Patio" + " " + "Cooperativa";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Salón de aislamiento y desinfección") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Patio" + " " + "Salón de aislamiento y desinfección";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "SHUT") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Patio" + " " + "SHUT";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }
                 })
               }else if (resultado2 == "Baños y escaleras") {
@@ -486,28 +491,36 @@
                     subtitulo.innerHTML = "No hay datos";
                   }else if (resultado3 == "Escaleras piso 1-2") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Baños y escaleras" + " " + "Escaleras piso 1-2";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Baños (piso 1.5)") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Baños y escaleras" + " " + "Baños (piso 1.5)";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Escaleras piso 2-3") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Baños y escaleras" + " " + "Escaleras piso 2-3";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Baños (piso 2.5)") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Baños y escaleras" + " " + "Baños (piso 2.5)";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Escaleras piso 3-4") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Baños y escaleras" + " " + "Escaleras piso 3-4";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Baños (piso 3.5)") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Baños y escaleras" + " " + "Baños (piso 3.5)";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Escaleras piso 4-5") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Baños y escaleras" + " " + "Escaleras piso 4-5";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Baños (piso 4.5)") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Baños y escaleras" + " " + "Baños (piso 4.5)";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }
                 })
               }else if (resultado2 == "Salones piso 2-3 primaria") {
@@ -523,19 +536,24 @@
                     subtitulo.innerHTML = "No hay datos";
                   }else if (resultado3 == "Primero") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 2-3 primaria" + " " + "Primero";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Segundo") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 2-3 primaria" + " " + "Segundo";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Tercero") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 2-3 primaria" + " " + "Tercero";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Cuarto") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 2-3 primaria" + " " + "Cuarto";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Quinto") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 2-3 primaria" + " " + "Quinto";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }
                 })
 
@@ -552,22 +570,28 @@
                     subtitulo.innerHTML = "No hay datos";
                   }else if (resultado3 == "Oficina coordinador 1") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Zona adminitrativa piso 2" + " " + "Oficina coordinador 1";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Oficina coordinador 2") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Zona adminitrativa piso 2" + " " + "Oficina coordinador 2";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Enfermería") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Zona adminitrativa piso 2" + " " + "Enfermería";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Zona común coordinación") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Zona adminitrativa piso 2" + " " + "Zona común coordinación";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Psicología") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Zona adminitrativa piso 2" + " " + "Psicología";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Sala de profesores") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Zona adminitrativa piso 2" + " " + "Sala de profesores";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }
                 })  
 
@@ -586,23 +610,29 @@
                   }else if (resultado3 == "Sexto") {
           
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 3-4 Bachillerato" + " " + "Sexto";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Séptimo") {
               
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 3-4 Bachillerato" + " " + "Séptimo";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Octavo") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 3-4 Bachillerato" + " " + "Octavo";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Noveno") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 3-4 Bachillerato" + " " + "Noveno";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Décimo") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 3-4 Bachillerato" + " " + "Décimo";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Once") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Salones piso 3-4 Bachillerato" + " " + "Once";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }
                 })
 
@@ -619,13 +649,16 @@
                     subtitulo.innerHTML = "No hay datos";
                   }else if (resultado3 == "Sala de Informática") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Laboratorios" + " " + "Sala de Informática";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Laboratorios de Ciencia") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Laboratorios" + " " + "Laboratorios de Ciencia";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Comedor") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Laboratorios" + " " + "Comedor";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }
                 })
 
@@ -642,10 +675,12 @@
                     subtitulo.innerHTML = "No hay datos";
                   }else if (resultado3 == "Escalera piso 5-6") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Cocina y escalera" + " " + "Escalera piso 5-6";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }else if (resultado3 == "Cocina") {
                     subtitulo.innerHTML = "Estadísticas de la zona " + "Básicas" + " " + "Cocina y escalera" + " " + "Cocina";
-                    realizarArregloTipoControl(resultado3)
+                    divTabla.innerHTML = "";
+                realizarArregloTipoControl(resultado3, datosMes, resultado, arregloControlesNombre, divTabla);
                   }
                 })
               }
