@@ -1,7 +1,6 @@
 const archivo = require('../db/funcionesArchvios');
 const archivosDatosFormularios = require('../db/funcionesArchivoDatosFormularios');
 
-let usuario , contra;
 
   
   
@@ -18,8 +17,7 @@ const controller = {
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
       
         if(empleado != undefined){      
-        localStorage.setItem('usuario', empleado.usuario);
-        localStorage.setItem('contra', empleado.contra);
+
 
         // condición rol depedniendo de ese rol hacemos condiciones y redireccionamos, toca pasar un atributo que es el rol y de ea forma controlamos la navegación
         if (empleado.rol == "Administrador"){
@@ -38,13 +36,11 @@ const controller = {
         },
     cerrar :(req, res) => {
 
-        localStorage.clear();
+      
         res.render('./index');
     },
     vistaEmpleado : (req, res) => {
         const empleados = archivo.leerArchivo();
-        usuario =localStorage.getItem('usuario');
-         contra = localStorage.getItem('contra'); 
         let empleado = empleados.find(empleado => empleado.usuario == usuario && empleado.contra == contra);
        
         res.render('./formularioEmpleado', {empleadoLogin: empleado,  rol :"Empleado" } );
