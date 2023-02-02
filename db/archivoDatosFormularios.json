@@ -372,5 +372,39 @@
   "fecha": "30/1/2023, 8:23:41 p. m.",
   "mes": "Enero",
   "ano": "2023,"
+ },
+ {
+  "id": 14,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Recepción",
+  "subZonas": "Espacio Recepción",
+  "tipoControl": [
+   {
+    "clave": "Espacio Recepción",
+    "valor": "Desinfección"
+   }
+  ],
+  "fecha": "2/2/2023, 11:18:10 a. m.",
+  "mes": "No se encontro el mes",
+  "ano": "023, "
+ },
+ {
+  "id": 15,
+  "nombre": "Kenneth11",
+  "sede": "Bosa",
+  "usuario": "leonelken",
+  "zona": "Recepción",
+  "subZonas": "Espacio Recepción",
+  "tipoControl": [
+   {
+    "clave": "Espacio Recepción",
+    "valor": "Desinfección"
+   }
+  ],
+  "fecha": "2/2/2023, 11:20:38 a. m.",
+  "mes": "Febrero",
+  "ano": "2023, "
  }
 ]

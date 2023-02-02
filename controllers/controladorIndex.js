@@ -65,7 +65,8 @@ const controller = {
        
         
 
-        let mes = new Date().toLocaleString("es-CO", {timeZone: "America/Bogota"}).slice(3,4);
+        let mes = new Date().toLocaleString("es-CO", {timeZone: "America/Bogota"}).slice(2,3);
+        
         let mesNombre;
         switch (mes) {
             case "1":
@@ -120,7 +121,7 @@ const controller = {
             // FECHA UTC DE COLOMBIA
             fecha : new Date().toLocaleString("es-CO", {timeZone: "America/Bogota"}),
             mes : mesNombre, 
-            ano : new Date().toLocaleString("es-CO", {timeZone: "America/Bogota"}).slice(5,10),
+            ano : new Date().toLocaleString("es-CO", {timeZone: "America/Bogota"}).slice(4,10),
                
         }
         console.log(dato, "esto es lo que guardoi");
