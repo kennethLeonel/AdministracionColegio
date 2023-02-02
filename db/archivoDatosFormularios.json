@@ -157,7 +157,7 @@
  {
   "id": 7,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Básicas",
   "subZonas": "Patio Básicas",
@@ -174,7 +174,7 @@
  {
   "id": 8,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Básicas",
   "subZonas": [
@@ -198,7 +198,7 @@
  {
   "id": 9,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Básicas",
   "subZonas": [
@@ -252,7 +252,7 @@
  {
   "id": 10,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Básicas",
   "subZonas": [
@@ -304,7 +304,7 @@
  {
   "id": 11,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Básicas",
   "subZonas": [
@@ -328,7 +328,7 @@
  {
   "id": 12,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Básicas",
   "subZonas": [
@@ -352,7 +352,7 @@
  {
   "id": 13,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Básicas",
   "subZonas": [
@@ -376,7 +376,7 @@
  {
   "id": 14,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "ZonasComunesPre",
   "subZonas": "Patio de juegos",
@@ -393,7 +393,7 @@
  {
   "id": 15,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Preescolar",
   "subZonas": "Prejardin",
@@ -410,7 +410,7 @@
  {
   "id": 16,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Recepción",
   "subZonas": "Espacio Recepción",
@@ -427,7 +427,7 @@
  {
   "id": 17,
   "nombre": "Steban",
-  "sede": "Chapiñero",
+  "sede": "Chapinero",
   "usuario": "Steban123",
   "zona": "Recepción",
   "subZonas": [
