@@ -406,5 +406,57 @@
   "fecha": "31/1/2023, 1:14:51 p. m.",
   "mes": "Enero",
   "ano": "2023,"
+ },
+ {
+  "id": 16,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Recepción",
+  "subZonas": "Espacio Recepción",
+  "tipoControl": [
+   {
+    "clave": "Espacio Recepción",
+    "valor": "Limpieza"
+   }
+  ],
+  "fecha": "1/2/2023, 8:13:20 p. m.",
+  "mes": "No se encontro el mes",
+  "ano": "023, "
+ },
+ {
+  "id": 17,
+  "nombre": "Steban",
+  "sede": "Chapiñero",
+  "usuario": "Steban123",
+  "zona": "Recepción",
+  "subZonas": [
+   "Espacio Recepción",
+   "Rectoria",
+   "Zona común"
+  ],
+  "tipoControl": [
+   {
+    "clave": "Espacio Recepción",
+    "valor": "Desinfección"
+   },
+   {
+    "clave": "Rectoria",
+    "valor": [
+     "Higienización",
+     "Dotación"
+    ]
+   },
+   {
+    "clave": "Zona común",
+    "valor": [
+     "Limpieza",
+     "Desinfección"
+    ]
+   }
+  ],
+  "fecha": "1/2/2023, 8:13:55 p. m.",
+  "mes": "No se encontro el mes",
+  "ano": "023, "
  }
 ]
