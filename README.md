@@ -1,3 +1,2 @@
 # AdministracionColegio
-
-se hará en js
+quiero probar si ya se soluciono el problema
